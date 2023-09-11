@@ -18,17 +18,18 @@ public class login extends JPanel {
     private int loginAttempts;
     private final Map<String, String> users;
     private JFrame frame;
-    private MainMenu mainMenu; // Declaración de la variable de instancia MainMenu
-
+  //  private MainMenu mainMenu; // Declaración de la variable de instancia MainMenu
+MainMenu ir = new MainMenu();
     /**
      * Muestra la ventana del menú principal y cierra la ventana de inicio de sesión.
      */
     public void showMainMenu() {
         // Crea una instancia de la clase MainMenu
-        MainMenu mainMenu = new MainMenu();
+       // MainMenu ir = new MainMenu();
 
         // Muestra la ventana de MainMenu
-        mainMenu.setVisible(true);
+        ir.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Abriendo ...");
         SwingUtilities.getWindowAncestor(this).dispose();
     }
 
@@ -88,7 +89,7 @@ public class login extends JPanel {
         users.put("", "");
 
         // Inicialización de la instancia de MainMenu
-        mainMenu = new MainMenu();
+//        mainMenu = new MainMenu();
     }
 
     /**
