@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * La clase 'login' representa la pantalla de inicio de sesión de la aplicación.
+ * La clase 'Login' representa la pantalla de inicio de sesión de la aplicación.
  */
 public class login extends JPanel {
     private JTextField usernameField;
@@ -17,24 +17,10 @@ public class login extends JPanel {
     private JLabel messageLabel;
     private int loginAttempts;
     private final Map<String, String> users;
-    private JFrame frame;
-  //  private MainMenu mainMenu; // Declaración de la variable de instancia MainMenu
-MainMenu ir = new MainMenu();
-    /**
-     * Muestra la ventana del menú principal y cierra la ventana de inicio de sesión.
-     */
-    public void showMainMenu() {
-        // Crea una instancia de la clase MainMenu
-       // MainMenu ir = new MainMenu();
-
-        // Muestra la ventana de MainMenu
-        ir.setVisible(true);
-        JOptionPane.showMessageDialog(null, "Abriendo ...");
-        SwingUtilities.getWindowAncestor(this).dispose();
-    }
+    private MainMenu mainMenu;
 
     /**
-     * Constructor de la clase 'login'.
+     * Constructor de la clase 'Login'.
      */
     public login() {
         setPreferredSize(new Dimension(400, 200));
@@ -83,13 +69,12 @@ MainMenu ir = new MainMenu();
         add(loginButton);
 
         users = new HashMap<>();
-        users.put("kaleb", "123");
-        users.put("admin", "admin");
-        users.put("IMX078856", "kaleb");
+        users.put("kaleb", "kaleb"); // Reemplaza hashed_password1 con la contraseña almacenada segura
+        users.put("admin", "admin");  // Reemplaza hashed_password2 con la contraseña almacenada segura
+        users.put("IMX078856", "hashed_password3");  // Reemplaza hashed_password3 con la contraseña almacenada segura
         users.put("", "");
 
-        // Inicialización de la instancia de MainMenu
-//        mainMenu = new MainMenu();
+        // No inicializamos la instancia de MainMenu aquí, se creará al hacer clic en "Iniciar Sesión".
     }
 
     /**
@@ -101,7 +86,11 @@ MainMenu ir = new MainMenu();
      */
     private boolean isValidLogin(String username, String password) {
         String storedPassword = users.get(username);
-        return storedPassword != null && storedPassword.equals(password);
+        // Aquí debes implementar la validación segura de la contraseña con hash y sal.
+        // Comparar la contraseña ingresada con la almacenada de manera segura.
+        // Devolver true si son iguales, de lo contrario false.
+        //r0eturn storedPassword != null && storedPassword.equals(password);
+       return false; // Reemplaza con la lógica de validación segura
     }
 
     /**
@@ -115,6 +104,16 @@ MainMenu ir = new MainMenu();
                 JOptionPane.INFORMATION_MESSAGE
         );
         System.exit(0); // Cierra la aplicación después de mostrar el mensaje
+    }
+
+    /**
+     * Muestra la ventana del menú principal y cierra la ventana de inicio de sesión.
+     */
+    private void showMainMenu() {
+        // Crea una instancia de la clase MainMenu cuando se hace clic en "Iniciar Sesión".
+        mainMenu = new MainMenu();
+        mainMenu.setVisible(true);
+        SwingUtilities.getWindowAncestor(this).dispose();
     }
 
     /**
