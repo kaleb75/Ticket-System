@@ -11,9 +11,15 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * La clase 'MainMenu' representa la pantalla principal del menú de la aplicación.
+ */
 public class MainMenu extends JPanel {
     private JLabel timeLabel; // Etiqueta para mostrar la hora
 
+    /**
+     * Constructor de la clase 'MainMenu'. Configura la interfaz de usuario del menú principal.
+     */
     public MainMenu() {
         setLayout(new BorderLayout());
 
@@ -71,7 +77,9 @@ public class MainMenu extends JPanel {
         });
     }
 
-    // Método para actualizar la hora
+    /**
+     * Método para actualizar la etiqueta de la hora con la hora actual.
+     */
     private void updateClock() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date now = new Date();
@@ -79,6 +87,9 @@ public class MainMenu extends JPanel {
         timeLabel.setText(formattedDate);
     }
 
+    /**
+     * Método principal que crea y muestra la ventana del menú principal.
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Menu");
