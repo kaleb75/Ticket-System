@@ -8,6 +8,9 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * La clase 'login' representa la pantalla de inicio de sesión de la aplicación.
+ */
 public class login extends JPanel {
     private JTextField usernameField;
     private JPasswordField passwordField;
@@ -17,16 +20,21 @@ public class login extends JPanel {
     private JFrame frame;
     private MainMenu mainMenu; // Declaración de la variable de instancia MainMenu
 
+    /**
+     * Muestra la ventana del menú principal y cierra la ventana de inicio de sesión.
+     */
     public void showMainMenu() {
-    // Crea una instancia de la clase MainMenu
-    MainMenu mainMenu = new MainMenu();
+        // Crea una instancia de la clase MainMenu
+        MainMenu mainMenu = new MainMenu();
 
-    // Muestra la ventana de MainMenu
-    mainMenu.setVisible(true);
+        // Muestra la ventana de MainMenu
+        mainMenu.setVisible(true);
         SwingUtilities.getWindowAncestor(this).dispose();
-}
+    }
 
-    
+    /**
+     * Constructor de la clase 'login'.
+     */
     public login() {
         setPreferredSize(new Dimension(400, 200));
         setLayout(new GridLayout(6, 1));
@@ -79,16 +87,25 @@ public class login extends JPanel {
         users.put("IMX078856", "kaleb");
         users.put("", "");
 
-
         // Inicialización de la instancia de MainMenu
         mainMenu = new MainMenu();
     }
 
+    /**
+     * Verifica si el inicio de sesión es válido.
+     *
+     * @param username Nombre de usuario
+     * @param password Contraseña
+     * @return true si las credenciales son válidas, false en caso contrario.
+     */
     private boolean isValidLogin(String username, String password) {
         String storedPassword = users.get(username);
         return storedPassword != null && storedPassword.equals(password);
     }
 
+    /**
+     * Muestra un mensaje de despedida y cierra la aplicación.
+     */
     private void showFarewellMessage() {
         JOptionPane.showMessageDialog(
                 this,
@@ -99,6 +116,9 @@ public class login extends JPanel {
         System.exit(0); // Cierra la aplicación después de mostrar el mensaje
     }
 
+    /**
+     * Método principal que crea y muestra la ventana de inicio de sesión.
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Inicio de Sesión");
