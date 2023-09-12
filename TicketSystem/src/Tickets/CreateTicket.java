@@ -41,7 +41,7 @@ public class CreateTicket extends javax.swing.JFrame {
         TClockNumber = new javax.swing.JTextField();
         TTitle = new javax.swing.JTextField();
         TPriority = new javax.swing.JComboBox<>();
-        TDate = new javax.swing.JSpinner();
+        Tets = new javax.swing.JSpinner();
         jScrollPane1 = new javax.swing.JScrollPane();
         TDescription = new javax.swing.JTextArea();
         VentanaFecha = new javax.swing.JLabel();
@@ -86,7 +86,7 @@ public class CreateTicket extends javax.swing.JFrame {
 
         TPriority.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1- Very High (Urgent Failure)", "2- High (Failure)", "3- Medium (Intermittent or degraded failure)", "4- Low (Changes or updates)", "5- Very Low (Information)" }));
 
-        TDate.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), new java.util.Date(1693920163499L), null, java.util.Calendar.DAY_OF_MONTH));
+        Tets.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), new java.util.Date(1693920163499L), null, java.util.Calendar.DAY_OF_MONTH));
 
         TDescription.setColumns(20);
         TDescription.setRows(5);
@@ -129,7 +129,7 @@ public class CreateTicket extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(TTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE)
                                         .addComponent(jScrollPane1)
-                                        .addComponent(TDate)
+                                        .addComponent(Tets)
                                         .addComponent(TPriority, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(471, 471, 471)
@@ -168,7 +168,7 @@ public class CreateTicket extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Tets, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,12 +199,41 @@ public class CreateTicket extends javax.swing.JFrame {
         if (connection != null) {
             System.out.println("Conexión establecida");
 
-            String consulta = "INSERT INTO Test (Title) VALUES (?)";
-            preparedStatement = connection.prepareStatement(consulta);
+                //Obtenemos texto del Title y se pone en el objeto desc para insertar en la base de datos
+                String title = TTitle.getText();
+                
+                //Obtenemos texto del numero del reloj y se pone en el objeto desc para insertar en la base de datos
+                String clockn = TClockNumber.getText();                
+            
+                // Obtiene la fecha y hora actual
+                Date fechaHoraActual = new Date();
+                // Formatea la fecha y hora en el formato deseado (DD/MM/AAAA HH:MM:SS AM/PM)
+                Timestamp timestamp = new Timestamp(fechaHoraActual.getTime());
+                
+                //Obtener el texto del combobox
+                String opcionescombo = (String) TPriority.getSelectedItem();
+                
+                //Obtener la fecha de tiempo estimado de solucion
+                Date ets = (Date) Tets.getValue();
+                //Damos formato para insertar el ETS
+                Timestamp etss = new Timestamp(ets.getTime());
+                
+                //Obtenemos texto de la descripcion y se pone en el objeto desc para insertar en la base de datos
+                String desc = TDescription.getText();
 
-            // Establece los valores para los campos
-            preparedStatement.setString(1, "Kaleb");
+             
+                String consulta = "INSERT INTO Test (Title, ClockNumber, Date, Priority, Status, ETS, Description) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                preparedStatement = connection.prepareStatement(consulta);
 
+                // Establece los valores para los campos
+                preparedStatement.setString(1, title);
+                preparedStatement.setString(2, clockn);
+                preparedStatement.setTimestamp(3, timestamp);
+                preparedStatement.setString(4, opcionescombo);
+                preparedStatement.setString(5, "Not Started");
+                preparedStatement.setTimestamp(6, etss);
+                preparedStatement.setString(7, desc);
+                
             int filasAfectadas = preparedStatement.executeUpdate();
 
             if (filasAfectadas > 0) {
@@ -302,10 +331,10 @@ public class CreateTicket extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton InsertBoton;
     private javax.swing.JTextField TClockNumber;
-    private javax.swing.JSpinner TDate;
     private javax.swing.JTextArea TDescription;
     private javax.swing.JComboBox<String> TPriority;
     private javax.swing.JTextField TTitle;
+    private javax.swing.JSpinner Tets;
     public javax.swing.JLabel VentanaFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
