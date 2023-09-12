@@ -69,7 +69,7 @@ public class login extends JPanel {
         add(loginButton);
 
         users = new HashMap<>();
-        users.put("kaleb", "kaleb"); // Reemplaza hashed_password1 con la contraseña almacenada segura
+        users.put("kaleb", ""); // Reemplaza hashed_password1 con la contraseña almacenada segura
         users.put("admin", "admin");  // Reemplaza hashed_password2 con la contraseña almacenada segura
         users.put("IMX078856", "hashed_password3");  // Reemplaza hashed_password3 con la contraseña almacenada segura
         users.put("", "");
@@ -84,13 +84,21 @@ public class login extends JPanel {
      * @param password Contraseña
      * @return true si las credenciales son válidas, false en caso contrario.
      */
-    private boolean isValidLogin(String username, String password) {
+     private boolean isValidLogin(String username, String password) {
         String storedPassword = users.get(username);
-        // Aquí debes implementar la validación segura de la contraseña con hash y sal.
-        // Comparar la contraseña ingresada con la almacenada de manera segura.
-        // Devolver true si son iguales, de lo contrario false.
-        //r0eturn storedPassword != null && storedPassword.equals(password);
-       return false; // Reemplaza con la lógica de validación segura
+
+        // Verifica si el usuario existe en el HashMap
+        if (storedPassword != null) {
+            // Verifica si la contraseña coincide
+            if (storedPassword.equals(password)) {
+                                showMainMenu();
+                JOptionPane.showMessageDialog(null, "Acceso correcto");
+                return true; // Las credenciales son válidas
+         
+            }
+        }
+
+        return false; // Las credenciales no son válidas
     }
 
     /**
@@ -111,8 +119,9 @@ public class login extends JPanel {
      */
     private void showMainMenu() {
         // Crea una instancia de la clase MainMenu cuando se hace clic en "Iniciar Sesión".
-        mainMenu = new MainMenu();
-        mainMenu.setVisible(true);
+        MainMenu ir = new MainMenu();
+        ir.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Aqui deberia abrir la clase menu");
         SwingUtilities.getWindowAncestor(this).dispose();
     }
 
