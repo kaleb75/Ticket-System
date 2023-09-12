@@ -69,10 +69,11 @@ public class login extends JPanel {
         add(loginButton);
 
         users = new HashMap<>();
-        users.put("kaleb", ""); // Reemplaza hashed_password1 con la contraseña almacenada segura
+        users.put("kaleb", "kaleb"); // Reemplaza hashed_password1 con la contraseña almacenada segura
+        users.put("k", ""); // Reemplaza hashed_password1 con la contraseña almacenada segura
         users.put("admin", "admin");  // Reemplaza hashed_password2 con la contraseña almacenada segura
         users.put("IMX078856", "hashed_password3");  // Reemplaza hashed_password3 con la contraseña almacenada segura
-        users.put("", "");
+      //  users.put("", ""); Metodo de pruebas de log
 
         // No inicializamos la instancia de MainMenu aquí, se creará al hacer clic en "Iniciar Sesión".
     }
@@ -91,8 +92,9 @@ public class login extends JPanel {
         if (storedPassword != null) {
             // Verifica si la contraseña coincide
             if (storedPassword.equals(password)) {
-                                showMainMenu();
-                JOptionPane.showMessageDialog(null, "Acceso correcto");
+                              JOptionPane.showMessageDialog(null, "Acceso correcto"); 
+                showMainMenu();
+                           
                 return true; // Las credenciales son válidas
          
             }
@@ -120,8 +122,8 @@ public class login extends JPanel {
     private void showMainMenu() {
         // Crea una instancia de la clase MainMenu cuando se hace clic en "Iniciar Sesión".
         MainMenu ir = new MainMenu();
-        ir.setVisible(true);
-        JOptionPane.showMessageDialog(null, "Aqui deberia abrir la clase menu");
+                ir.showMainMenu();
+       // JOptionPane.showMessageDialog(null, "Aqui deberia abrir la clase menu");
         SwingUtilities.getWindowAncestor(this).dispose();
     }
 

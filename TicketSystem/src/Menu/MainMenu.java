@@ -1,27 +1,19 @@
-package Menu; // Asegúrate de que la clase esté en el paquete correcto
+package Menu;
 
 import javax.swing.*;
 
 public class MainMenu {
-    public static void main(String[] args) {
-         MainMenu ir = new MainMenu();
-         
-      //  MainMenu.main(args); // Llama al método main de MainMenu
-
-    }
-    
-   public void setVisible(boolean b) {
-        MainMenu ir = new MainMenu();
-        
+    public void showMainMenu() {
+        MainMenu ir = null;
         SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Menú Principal"); // Título del JFrame
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cierra la aplicación al cerrar el JFrame
-            frame.setSize(400, 300); // Tamaño del JFrame (ancho x alto)
+            JFrame frame = new JFrame("Menú Principal");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(400, 300);
             frame.setLocationRelativeTo(null);
             
             // Puedes agregar componentes (botones, etiquetas, etc.) al JFrame aquí
             
-            frame.setVisible(true); // Hacer visible el JFrame
+            frame.setVisible(true);
         });
-   }
+    }
 }
