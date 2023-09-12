@@ -1,16 +1,17 @@
 
 package Tickets;
 
-import com.sun.jdi.connect.spi.Connection;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.*;
-import java.util.Set;
-import java.sql.PreparedStatement;
-import java.sql.Connection.*;
+
+
 
 
 
@@ -44,7 +45,7 @@ public class CreateTicket extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TDescription = new javax.swing.JTextArea();
         VentanaFecha = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        InsertBoton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -59,6 +60,11 @@ public class CreateTicket extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(1920, 1080);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("Description");
 
@@ -88,11 +94,11 @@ public class CreateTicket extends javax.swing.JFrame {
 
         VentanaFecha.setText("Fecha:" + fecha);
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jButton1.setText("Generate");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        InsertBoton.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        InsertBoton.setText("Generate");
+        InsertBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                InsertBotonActionPerformed(evt);
             }
         });
 
@@ -127,7 +133,7 @@ public class CreateTicket extends javax.swing.JFrame {
                                         .addComponent(TPriority, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(471, 471, 471)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(InsertBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(127, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -168,7 +174,7 @@ public class CreateTicket extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InsertBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(VentanaFecha)
                 .addContainerGap())
@@ -179,22 +185,61 @@ public class CreateTicket extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-              Connection connection = null;
-        Statement sentencia = null;
-        ResultSet resultado = null;
-         // Establece la URL de conexión a la base de datos de Access
-            String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
-            String url = "jdbc:ucanaccess://" + ruta;
+    private void InsertBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertBotonActionPerformed
+              
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
 
-        try {
-            
-            
-            String insertar = "INSERT INTO Test Title Values(?)";
-            PreparedStatement query =  
-        } catch (Exception e) {
+    // Establece la URL de conexión a la base de datos de Access
+    String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
+    String url = "jdbc:ucanaccess://" + ruta;
+
+    try {
+        connection = DriverManager.getConnection(url);
+        if (connection != null) {
+            System.out.println("Conexión establecida");
+
+            String consulta = "INSERT INTO Test (Title) VALUES (?)";
+            preparedStatement = connection.prepareStatement(consulta);
+
+            // Establece los valores para los campos
+            preparedStatement.setString(1, "Kaleb");
+
+            int filasAfectadas = preparedStatement.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                System.out.println("Inserción exitosa.");
+            } else {
+                System.out.println("La inserción no se pudo realizar.");
+            }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    } catch (SQLException e) {
+        System.out.println("Error de SQL: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error de SQL: " + e.getMessage());
+    } finally {
+        // Cierra el PreparedStatement y la conexión en el bloque finally
+        try {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                System.out.println("conexion cerrada");
+                connection.close();
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+
+    }//GEN-LAST:event_InsertBotonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+/*
+        
+        Pendiente de documentar la desconexion de BD
+        
+        */
+    }//GEN-LAST:event_formWindowClosing
 
  
     public static void main(String args[]) {
@@ -231,7 +276,7 @@ public class CreateTicket extends javax.swing.JFrame {
             }
 
         public static void AccessDatabaseConnection() {
-      // Connection connection = null;
+      Connection connection = null;
         Statement sentencia = null;
         ResultSet resultado = null;
          // Establece la URL de conexión a la base de datos de Access
@@ -239,7 +284,7 @@ public class CreateTicket extends javax.swing.JFrame {
             String url = "jdbc:ucanaccess://" + ruta;
 
             try {
-                 Connection conexion = DriverManager.getConnection(url)
+        connection = DriverManager.getConnection(url);
                 JOptionPane.showMessageDialog(null, "Conexion Exitosa");
             } catch (Exception e) {
                 System.out.println(""+e);
@@ -255,13 +300,13 @@ public class CreateTicket extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton InsertBoton;
     private javax.swing.JTextField TClockNumber;
     private javax.swing.JSpinner TDate;
     private javax.swing.JTextArea TDescription;
     private javax.swing.JComboBox<String> TPriority;
     private javax.swing.JTextField TTitle;
     public javax.swing.JLabel VentanaFecha;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
