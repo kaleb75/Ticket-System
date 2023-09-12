@@ -238,6 +238,7 @@ public class CreateTicket extends javax.swing.JFrame {
 
             if (filasAfectadas > 0) {
                 System.out.println("Inserción exitosa.");
+                mostrarticket();
             } else {
                 System.out.println("La inserción no se pudo realizar.");
             }
@@ -345,4 +346,49 @@ public class CreateTicket extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void mostrarticket() {
+         Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+    
+    // Establece la URL de conexión a la base de datos de Access
+    String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
+    String url = "jdbc:ucanaccess://" + ruta;
+     try {
+        connection = DriverManager.getConnection(url);
+
+        // Consulta SQL para obtener el último ID
+        String consulta = "SELECT MAX(IDTicket) AS ID From Test";
+        preparedStatement = connection.prepareStatement(consulta);
+        resultSet = preparedStatement.executeQuery();
+
+        if (resultSet.next()) {
+            int ultimoID = resultSet.getInt("UltimoID");
+            System.out.println("Último ID ticket ingresado: " + ultimoID);
+            
+            // Aquí puedes utilizar la variable "ultimoID" como necesites
+        } else {
+            System.out.println("No se encontraron datos en la tabla.");
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        // Cierra la conexión y otros recursos
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    }
 }
