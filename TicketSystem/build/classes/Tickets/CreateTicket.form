@@ -73,7 +73,7 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="TTitle" pref="872" max="32767" attributes="0"/>
                                       <Component id="jScrollPane1" max="32767" attributes="0"/>
-                                      <Component id="TDate" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Tets" alignment="0" max="32767" attributes="0"/>
                                       <Component id="TPriority" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -125,7 +125,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" linkSize="2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="TDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Tets" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -202,7 +202,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JSpinner" name="TDate">
+    <Component class="javax.swing.JSpinner" name="Tets">
       <Properties>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="now" minimum="1693920163499" stepSize="5" type="date"/>
