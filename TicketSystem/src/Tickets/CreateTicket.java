@@ -206,7 +206,9 @@ public class CreateTicket extends javax.swing.JFrame {
     PreparedStatement preparedStatement = null;
 
     // Establece la URL de conexión a la base de datos de Access
-    String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
+    //String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
+    //"C:\Users\imx078856\Documents\GitHub\Ticket-System\BD\BDTickets-System.accdb"
+    String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
     String url = "jdbc:ucanaccess://" + ruta;
 
     try {
@@ -331,7 +333,9 @@ this.dispose();
         Statement sentencia = null;
         ResultSet resultado = null;
          // Establece la URL de conexión a la base de datos de Access
-            String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
+          //String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
+    //"C:\Users\imx078856\Documents\GitHub\Ticket-System\BD\BDTickets-System.accdb"
+    String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
             String url = "jdbc:ucanaccess://" + ruta;
 
             try {
@@ -376,7 +380,9 @@ this.dispose();
     ResultSet resultSet = null;
     int ultimoID =0;
     // Establece la URL de conexión a la base de datos de Access
-    String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
+  //String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
+    //"C:\Users\imx078856\Documents\GitHub\Ticket-System\BD\BDTickets-System.accdb"
+    String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
     String url = "jdbc:ucanaccess://" + ruta;
        try {
             // Establece la conexión con la base de datos
