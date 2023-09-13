@@ -1,4 +1,5 @@
-package Menu;// Paquete que contiene la clase principal del menú (Package that contains the main class of the menu)
+// Paquete que contiene la clase principal del menú (Package that contains the main class of the menu)
+package Menu;
 
 // Importar las bibliotecas necesarias (Import the necessary libraries)
 import Tickets.CreateTicket; // Importar la clase CreateTicket (Import the CreateTicket class)
@@ -76,6 +77,5 @@ public class MainMenu {
         NotStarted ir = new NotStarted();
         ir.show(true);
         return;
-        
     }
 }
