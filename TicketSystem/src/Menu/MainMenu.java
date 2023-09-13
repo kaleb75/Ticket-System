@@ -2,6 +2,7 @@ package Menu;// Paquete que contiene la clase principal del menú (Package that 
 
 // Importar las bibliotecas necesarias (Import the necessary libraries)
 import Tickets.CreateTicket; // Importar la clase CreateTicket (Import the CreateTicket class)
+import Tickets.NotStarted;
 import javax.swing.*; // Importar las clases Swing para la interfaz gráfica de usuario (GUI) (Import Swing classes for the graphical user interface (GUI))
 import java.awt.*; // Importar las clases AWT para la gestión de la GUI (Import AWT classes for GUI management)
 import java.awt.event.ActionEvent; // Importar la clase ActionEvent para manejar eventos (Import the ActionEvent class to handle events)
@@ -32,11 +33,11 @@ public class MainMenu {
             panel.setLayout(new GridLayout(3, 1)); // Establecer el diseño de cuadrícula para organizar los componentes (Set a grid layout to organize components)
 
             // Botón para abrir NewTicket (Button to open NewTicket)
-            JButton btnNewTicket = new JButton("Abrir NewTicket"); // Crear un botón con etiqueta (Create a button with label)
+            JButton btnNewTicket = new JButton("New Ticket"); // Crear un botón con etiqueta (Create a button with label)
             panel.add(btnNewTicket); // Agregar el botón al panel (Add the button to the panel)
 
             // Botón para abrir NotStarted (documentado) (Button to open NotStarted (documented))
-            JButton btnNotStarted = new JButton("Abrir NotStarted (Documentado)"); // Crear un botón con etiqueta (Create a button with label)
+            JButton btnNotStarted = new JButton("Not Started"); // Crear un botón con etiqueta (Create a button with label)
             panel.add(btnNotStarted); // Agregar el botón al panel (Add the button to the panel)
 
             // Evento para el botón NewTicket (Event for the NewTicket button)
@@ -51,6 +52,7 @@ public class MainMenu {
             btnNotStarted.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     abrirNotStarted(); // Llamar al método abrirNotStarted() cuando se haga clic en el botón (Call the abrirNotStarted() method when the button is clicked)
+                    frame.dispose();
                 }
             });
 
@@ -70,6 +72,10 @@ public class MainMenu {
     // Método para abrir la clase NotStarted (documentada) (Method to open the NotStarted (documented) class)
     private void abrirNotStarted() {
         // Documenta la lógica para abrir la clase NotStarted cuando esté disponible (Document the logic to open the NotStarted class when available)
-        JOptionPane.showMessageDialog(null, "Abriendo la clase NotStarted (documentada)"); // Mostrar un mensaje de diálogo (Show a dialog message)
+        JOptionPane.showMessageDialog(null, "Abriendo Lista de NotStarted"); // Mostrar un mensaje de diálogo (Show a dialog message)
+        NotStarted ir = new NotStarted();
+        ir.show(true);
+        return;
+        
     }
 }
