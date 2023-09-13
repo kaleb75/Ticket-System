@@ -80,7 +80,7 @@ public class CreateTicket extends javax.swing.JFrame {
         jLabel6.setText("New Ticket");
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        TClockNumber.setText("#####");
+        TClockNumber.setText("012345");
 
         TTitle.setText("Titulo del soporte");
 
@@ -238,7 +238,7 @@ public class CreateTicket extends javax.swing.JFrame {
 
             if (filasAfectadas > 0) {
                 System.out.println("Inserción exitosa.");
-                mostrarticket();
+                
             } else {
                 System.out.println("La inserción no se pudo realizar.");
             }
@@ -260,7 +260,7 @@ public class CreateTicket extends javax.swing.JFrame {
             System.out.println("Error al cerrar la conexión: " + e.getMessage());
         }
     }
-
+mostrarticket();
     }//GEN-LAST:event_InsertBotonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -315,7 +315,8 @@ public class CreateTicket extends javax.swing.JFrame {
 
             try {
         connection = DriverManager.getConnection(url);
-                JOptionPane.showMessageDialog(null, "Conexion Exitosa");
+                System.out.println("Conexion exitosa");
+              //  JOptionPane.showMessageDialog(null, "Conexion Exitosa");
             } catch (Exception e) {
                 System.out.println(""+e);
                 JOptionPane.showMessageDialog(null, e);
@@ -351,44 +352,36 @@ public class CreateTicket extends javax.swing.JFrame {
          Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
-    
+    int ultimoID =0;
     // Establece la URL de conexión a la base de datos de Access
     String ruta = "C:\\Users\\imx078856\\Documents\\BDTickets.accdb";
     String url = "jdbc:ucanaccess://" + ruta;
-     try {
-        connection = DriverManager.getConnection(url);
+       try {
+            // Establece la conexión con la base de datos
+            connection = DriverManager.getConnection(url);
 
-        // Consulta SQL para obtener el último ID
-        String consulta = "SELECT MAX(IDTicket) AS ID From Test";
-        preparedStatement = connection.prepareStatement(consulta);
-        resultSet = preparedStatement.executeQuery();
+            // Consulta el último ID de la tabla
+            String sql = "SELECT MAX(IDTicket) FROM Test";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
 
-        if (resultSet.next()) {
-            int ultimoID = resultSet.getInt("UltimoID");
-            System.out.println("Último ID ticket ingresado: " + ultimoID);
-            
-            // Aquí puedes utilizar la variable "ultimoID" como necesites
-        } else {
-            System.out.println("No se encontraron datos en la tabla.");
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
-        // Cierra la conexión y otros recursos
-        try {
-            if (resultSet != null) {
-                resultSet.close();
+            // Obtiene el último ID y lo almacena en la variable
+            if (resultSet.next()) {
+                ultimoID = resultSet.getInt(1);
             }
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
+
+            // Utiliza el valor de 'ultimoID' como desees
+            JOptionPane.showMessageDialog(null, "Tu ticket es FIS-" + ultimoID);
+//   System.out.println("El último ID en la tabla es: " + ultimoID);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-    }
-    
-    }
-}
+        } finally {
+            try {
+                // Cierra los recursos
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } }}
