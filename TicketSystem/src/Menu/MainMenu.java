@@ -1,4 +1,4 @@
-package Menu;
+package Menu;// Paquete que contiene la clase principal del menú (Package that contains the main class of the menu)
 
 // Importar las bibliotecas necesarias (Import the necessary libraries)
 import Tickets.CreateTicket; // Importar la clase CreateTicket (Import the CreateTicket class)
