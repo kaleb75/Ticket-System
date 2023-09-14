@@ -1,24 +1,31 @@
 package Tickets;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class NotStartedd extends JFrame {
-    private JTable table;
-    
+public class Test01 extends javax.swing.JFrame {
 
-    public NotStartedd() {
-    setExtendedState(JFrame.MAXIMIZED_BOTH); // Establecer el estado extendido para hacerlo pantalla completa
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null); // Centrar la ventana en la pantalla
-System.out.println("Aqui debe salir la tabla");
+    public Test01() {
+        initComponents();
+        
         // Crear un modelo de tabla
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                if (columnIndex == 7) { // Cambiar 7 al índice correcto de la columna "ETS"
+                    return java.util.Date.class;
+                }
+                return super.getColumnClass(columnIndex);
+            }
+        };
         model.addColumn("IDTicket");
         model.addColumn("ClockNumber");
         model.addColumn("Date");
@@ -31,54 +38,58 @@ System.out.println("Aqui debe salir la tabla");
         model.addColumn("HTML");
 
         // Crear la JTable con el modelo
-        table = new JTable(model);
+        JTable table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
 
         // Realizar la consulta a la base de datos y cargar los datos en la tabla
         try {
-                String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
-    String url = "jdbc:ucanaccess://" + ruta;
+            String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+            String url = "jdbc:ucanaccess://" + ruta;
             Connection connection = DriverManager.getConnection(url);
-            System.out.println("Aqui debe conectar la base de datos");
             
             Statement statement = connection.createStatement();
 
             String query = "SELECT * FROM Test WHERE Status='Not Started'";
-            System.out.println("ya invoco la tabla desde la base de datos");
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
                 model.addRow(new Object[] {
                     resultSet.getInt("IDTicket"),
-                    resultSet.getString("ClockNumber"),
+                    resultSet.getInt("ClockNumber"),
                     resultSet.getDate("Date"),
                     resultSet.getString("Title"),
                     resultSet.getString("Priority"),
                     resultSet.getString("Status"),
                     resultSet.getString("Assigned"),
-                    resultSet.getInt("ETS"),
+                    resultSet.getDate("ETS"), // Se espera que "ETS" sea una fecha
                     resultSet.getString("Description"),
                     resultSet.getString("HTML")
-                        
                 });
             }
-            System.out.println("ya debio haber llenado la tabla");
 
             resultSet.close();
             statement.close();
             connection.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "A donde vas perro");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la base de datos");
             e.printStackTrace();
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            NotStarted notStarted = new NotStarted();
-            notStarted.setVisible(true);
-           // NotStartedd();
+    // El resto del código generado por el diseñador de GUI permanece igual
+
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new Test01().setVisible(true);
         });
+    }
+
+    // Variables declaration - do not modify
+    private javax.swing.JScrollPane jScrollPane1;
+    // End of variables declaration
+
+    private void initComponents() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

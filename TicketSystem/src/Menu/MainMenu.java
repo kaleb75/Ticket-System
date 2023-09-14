@@ -3,7 +3,7 @@ package Menu;
 
 // Importar las bibliotecas necesarias (Import the necessary libraries)
 import Tickets.CreateTicket; // Importar la clase CreateTicket (Import the CreateTicket class)
-import Tickets.NotStarted;
+import Tickets.Test01;
 import javax.swing.*; // Importar las clases Swing para la interfaz gráfica de usuario (GUI) (Import Swing classes for the graphical user interface (GUI))
 import java.awt.*; // Importar las clases AWT para la gestión de la GUI (Import AWT classes for GUI management)
 import java.awt.event.ActionEvent; // Importar la clase ActionEvent para manejar eventos (Import the ActionEvent class to handle events)
@@ -37,7 +37,7 @@ public class MainMenu {
             JButton btnNewTicket = new JButton("New Ticket"); // Crear un botón con etiqueta (Create a button with label)
             panel.add(btnNewTicket); // Agregar el botón al panel (Add the button to the panel)
 
-            // Botón para abrir NotStarted (documentado) (Button to open NotStarted (documented))
+            // Botón para abrir Test01 (documentado) (Button to open Test01 (documented))
             JButton btnNotStarted = new JButton("Not Started"); // Crear un botón con etiqueta (Create a button with label)
             panel.add(btnNotStarted); // Agregar el botón al panel (Add the button to the panel)
 
@@ -49,7 +49,7 @@ public class MainMenu {
                 }
             });
 
-            // Evento para el botón NotStarted (Event for the NotStarted button)
+            // Evento para el botón Test01 (Event for the Test01 button)
             btnNotStarted.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     abrirNotStarted(); // Llamar al método abrirNotStarted() cuando se haga clic en el botón (Call the abrirNotStarted() method when the button is clicked)
@@ -70,11 +70,11 @@ public class MainMenu {
         return; // Salir del método (Exit the method)
     }
 
-    // Método para abrir la clase NotStarted (documentada) (Method to open the NotStarted (documented) class)
+    // Método para abrir la clase Test01 (documentada) (Method to open the Test01 (documented) class)
     private void abrirNotStarted() {
-        // Documenta la lógica para abrir la clase NotStarted cuando esté disponible (Document the logic to open the NotStarted class when available)
+        // Documenta la lógica para abrir la clase Test01 cuando esté disponible (Document the logic to open the Test01 class when available)
         JOptionPane.showMessageDialog(null, "Abriendo Lista de NotStarted"); // Mostrar un mensaje de diálogo (Show a dialog message)
-        NotStarted ir = new NotStarted();
+        Test01 ir = new Test01();
         ir.show(true);
         return;
     }

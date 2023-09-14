@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class NotStarted extends javax.swing.JFrame {
 
     public NotStarted() {
-        initComponents();
+//    initComponents();
         
         // Crear un modelo de tabla
         DefaultTableModel model = new DefaultTableModel() {
