@@ -4,6 +4,17 @@
  */
 package Tickets;
 
+import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author IMX078856
@@ -15,6 +26,65 @@ public class NotStarted extends javax.swing.JFrame {
      */
     public NotStarted() {
         initComponents();
+      /*  setExtendedState(JFrame.MAXIMIZED_BOTH); // Establecer el estado extendido para hacerlo pantalla completa
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null); // Centrar la ventana en la pantalla*/
+System.out.println("Aqui debe salir la tabla");
+        // Crear un modelo de tabla
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("IDTicket");
+        model.addColumn("ClockNumber");
+        model.addColumn("Date");
+        model.addColumn("Title");
+        model.addColumn("Priority");
+        model.addColumn("Status");
+        model.addColumn("Assigned");
+        model.addColumn("ETS");
+        model.addColumn("Description");
+        model.addColumn("HTML");
+
+        // Crear la JTable con el modelo
+        JTable table = new JTable(model);
+        JScrollPane scrollPane = new JScrollPane(table);
+        getContentPane().add(scrollPane, BorderLayout.CENTER);
+
+        // Realizar la consulta a la base de datos y cargar los datos en la tabla
+        try {
+                String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+    String url = "jdbc:ucanaccess://" + ruta;
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Aqui debe conectar la base de datos");
+            
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT * FROM Test WHERE Status='Not Started'";
+            System.out.println("ya invoco la tabla desde la base de datos");
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                model.addRow(new Object[] {
+                    resultSet.getInt("IDTicket"),
+                    resultSet.getInt("ClockNumber"),
+                    resultSet.getDate("Date"),
+                    resultSet.getString("Title"),
+                    resultSet.getString("Priority"),
+                    resultSet.getString("Status"),
+                    resultSet.getString("Assigned"),
+                    resultSet.getDate("ETS"),
+                    resultSet.getString("Description"),
+                    resultSet.getString("HTML")
+                        
+                });
+            }
+            System.out.println("ya debio haber llenado la tabla");
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "A donde vas perro");
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -34,17 +104,17 @@ public class NotStarted extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1057, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(114, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
