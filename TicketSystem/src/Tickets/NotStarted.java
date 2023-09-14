@@ -1,43 +1,41 @@
 package Tickets;
 
-import java.awt.BorderLayout;
+import Menu.MainMenu;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class NotStarted extends javax.swing.JFrame {
 
     public NotStarted() {
-//    initComponents();
-        
-        // Crear un modelo de tabla
+        // Crear un modelo de tabla para almacenar los datos
         DefaultTableModel model = new DefaultTableModel() {
             @Override
             public Class<?> getColumnClass(int columnIndex) {
-                if (columnIndex == 7) { // Cambiar 7 al índice correcto de la columna "ETS"
-                    return java.util.Date.class;
+                if (columnIndex == 7) {
+                    return java.util.Date.class; // Columna "ETS" se espera que contenga fechas
                 }
                 return super.getColumnClass(columnIndex);
             }
         };
-        model.addColumn("IDTicket");
-        model.addColumn("ClockNumber");
-        model.addColumn("Date");
-        model.addColumn("Title");
-        model.addColumn("Priority");
-        model.addColumn("Status");
-        model.addColumn("Assigned");
-        model.addColumn("ETS");
-        model.addColumn("Description");
-        model.addColumn("HTML");
+        model.addColumn("IDTicket"); // Columna para ID de Ticket
+        model.addColumn("ClockNumber"); // Columna para Número de Reloj
+        model.addColumn("Date"); // Columna para Fecha
+        model.addColumn("Title"); // Columna para Título
+        model.addColumn("Priority"); // Columna para Prioridad
+        model.addColumn("Status"); // Columna para Estado
+        model.addColumn("Assigned"); // Columna para Asignado
+        model.addColumn("ETS"); // Columna para ETS (posiblemente una fecha)
+        model.addColumn("Description"); // Columna para Descripción
+        model.addColumn("HTML"); // Columna para HTML
 
-        // Crear la JTable con el modelo
+        // Crear la JTable con el modelo de datos
         JTable table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
@@ -54,6 +52,7 @@ public class NotStarted extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
+                // Agregar filas con datos de la base de datos
                 model.addRow(new Object[] {
                     resultSet.getInt("IDTicket"),
                     resultSet.getInt("ClockNumber"),
@@ -75,9 +74,28 @@ public class NotStarted extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al acceder a la base de datos");
             e.printStackTrace();
         }
-    }
 
-    // El resto del código generado por el diseñador de GUI permanece igual
+        // Configurar el JFrame para pantalla completa
+        setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximiza la ventana al tamaño completo del monitor
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cierra la aplicación al cerrar la ventana
+        setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        setTitle("Not Started Tickets"); // Establece el título de la ventana
+        
+        // Agregar un botón para volver al menú principal
+        JButton backButton = new JButton("Volver al Menú Principal");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Código para volver al menú principal
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.showMainMenu();
+                dispose(); // Cierra la ventana actual
+            }
+        });
+
+        // Agregar el botón al panel principal
+        getContentPane().add(backButton, BorderLayout.SOUTH);
+    }
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
