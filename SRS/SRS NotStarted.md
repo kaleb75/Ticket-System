@@ -1,44 +1,39 @@
-# Especificación de Requisitos de Software (SRS)
+# Especificación de Requisitos de Software (SRS) - Clase NotStarted
 
-## Funcionalidad de Visualización de Filas con Estado "Not Started" y Ventana de Ticket
+## Introducción
+El objetivo de esta especificación de requisitos de software (SRS) es definir los requisitos funcionales y no funcionales para la implementación de la clase `NotStarted`. Esta clase tiene como finalidad filtrar los tickets de soporte con estado "Not Started" y sin asignar en una base de datos MS Access llamada "Test".
 
-### 1. Introducción
+## Requisitos Funcionales
 
-#### 1.1 Propósito
+### RF01: Filtrar Tickets "Not Started"
+La clase `NotStarted` deberá ser capaz de acceder a la base de datos "Test" y filtrar todos los tickets de soporte con estado "Not Started".
 
-El propósito de este documento es definir los requisitos funcionales y no funcionales para la funcionalidad de visualización de filas con estado "Not Started" en un componente JTable dentro de una aplicación de software. Además, se incluye la capacidad de abrir una ventana de documentación y manipulación de un ticket al seleccionarlo.
+### RF02: Identificar Tickets Sin Asignar
+La clase `NotStarted` deberá identificar los tickets de soporte que no tienen un ingeniero o técnico asignado.
 
-### 2. Requisitos Funcionales
+### RF03: Mostrar Resultados
+La clase `NotStarted` deberá mostrar los resultados del filtrado de tickets, lo que incluye la información de cada ticket encontrado.
 
-#### 2.1 Requisito Funcional 1: Filtrado de Filas por Estado
+### RF04: Interfaz de Usuario (UI)
+La clase `NotStarted` deberá proporcionar una interfaz de usuario simple para que el usuario pueda interactuar con la funcionalidad de filtrado y visualización de tickets.
 
-- **Descripción:** La aplicación debe permitir al usuario filtrar las filas en el JTable para mostrar solo aquellas que tengan el estado "Not Started".
+## Requisitos No Funcionales
 
-#### 2.2 Requisito Funcional 2: Visualización de Filas
+### RNF01: Eficiencia
+El proceso de filtrado y visualización de tickets deberá ser eficiente y no causar retrasos significativos en la respuesta al usuario.
 
-- **Descripción:** La aplicación debe mostrar las filas filtradas con el estado "Not Started" en el JTable de forma clara y legible para el usuario.
+### RNF02: Seguridad
+La clase `NotStarted` deberá implementar medidas de seguridad para proteger la integridad de la base de datos y la información de los tickets.
 
-#### 2.3 Requisito Funcional 3: Interacción del Usuario
+### RNF03: Usabilidad
+La interfaz de usuario deberá ser intuitiva y fácil de usar para los usuarios finales.
 
-- **Descripción:** El usuario debe poder interactuar con las filas mostradas en el JTable, lo que puede incluir la capacidad de seleccionar, ordenar o realizar otras acciones relevantes.
+### RNF04: Portabilidad
+La clase `NotStarted` deberá ser compatible con el entorno de ejecución de MS Access.
 
-#### 2.4 Requisito Funcional 4: Apertura de Ventana de Ticket
+## Comentarios Adicionales
+- La clase `NotStarted` deberá tener métodos y atributos adicionales según sea necesario para cumplir con los requisitos mencionados anteriormente.
+- Se espera que la clase `NotStarted` pueda ser parte de un sistema más grande que gestiona tickets de soporte.
 
-- **Descripción:** Cuando el usuario seleccione un ticket en el JTable que tenga el estado "Not Started," la aplicación deberá abrir una ventana adicional de documentación y manipulación de ese ticket.
-
-### 3. Requisitos No Funcionales
-
-#### 3.1 Requisito No Funcional 1: Rendimiento
-
-- **Descripción:** La funcionalidad de visualización de filas con estado "Not Started" y la apertura de la ventana de ticket deben tener un rendimiento óptimo, incluso cuando se trabaje con un gran conjunto de datos.
-
-#### 3.2 Requisito No Funcional 2: Usabilidad
-
-- **Descripción:** La interfaz de usuario para la visualización de filas y la ventana de ticket debe ser intuitiva y fácil de usar, garantizando una experiencia de usuario satisfactoria.
-
-### 4. Requisitos de la Ventana de Ticket
-
-#### 4.1 Requisito Funcional 5: Documentación y Manipulación de Ticket
-
-- **Descripción:** La ventana de ticket deberá proporcionar al usuario la capacidad de documentar y manipular la información relacionada con el ticket seleccionado, lo que puede incluir la edición de detalles, la asignación de responsabilidades y otras acciones relevantes.
-
+## Conclusiones
+Esta especificación de requisitos de software (SRS) establece los requisitos clave para la implementación de la clase `NotStarted`. La implementación exitosa de esta clase permitirá filtrar y visualizar tickets de soporte "Not Started" y sin asignar en la base de datos "Test" de manera eficiente y segura.
