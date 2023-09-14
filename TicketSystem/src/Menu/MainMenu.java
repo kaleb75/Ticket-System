@@ -3,6 +3,7 @@ package Menu;
 
 // Importar las bibliotecas necesarias (Import the necessary libraries)
 import Tickets.CreateTicket; // Importar la clase CreateTicket (Import the CreateTicket class)
+import Tickets.NotStarted;
 import Tickets.Test01;
 import javax.swing.*; // Importar las clases Swing para la interfaz gráfica de usuario (GUI) (Import Swing classes for the graphical user interface (GUI))
 import java.awt.*; // Importar las clases AWT para la gestión de la GUI (Import AWT classes for GUI management)
@@ -74,7 +75,7 @@ public class MainMenu {
     private void abrirNotStarted() {
         // Documenta la lógica para abrir la clase Test01 cuando esté disponible (Document the logic to open the Test01 class when available)
         JOptionPane.showMessageDialog(null, "Abriendo Lista de NotStarted"); // Mostrar un mensaje de diálogo (Show a dialog message)
-        Test01 ir = new Test01();
+        NotStarted ir = new NotStarted();
         ir.show(true);
         return;
     }
