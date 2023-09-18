@@ -211,6 +211,15 @@ public class CreateTicket extends javax.swing.JFrame {
     String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
     String url = "jdbc:ucanaccess://" + ruta;
 
+     int respuesta = JOptionPane.showConfirmDialog(
+            null,  // Componente padre (null para cuadro de diálogo independiente)
+            "¿Deseas generar el método?",  // Mensaje
+            "Confirmación",  // Título del cuadro de diálogo
+            JOptionPane.YES_NO_OPTION  // Tipo de botones (Sí y No)
+        );
+             if (respuesta == JOptionPane.YES_OPTION) {
+
+    
     try {
         connection = DriverManager.getConnection(url);
         if (connection != null) {
@@ -277,7 +286,13 @@ public class CreateTicket extends javax.swing.JFrame {
             System.out.println("Error al cerrar la conexión: " + e.getMessage());
         }
     }
+    
 mostrarticket();
+             }else {
+            // El usuario seleccionó "No" o cerró el cuadro de diálogo
+            // Puedes realizar otra acción o salir del programa si lo deseas
+            JOptionPane.showMessageDialog(null, "No new ticket was generated");
+        }
     }//GEN-LAST:event_InsertBotonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
