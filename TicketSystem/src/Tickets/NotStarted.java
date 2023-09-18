@@ -36,7 +36,7 @@ public class NotStarted extends javax.swing.JFrame {
         model.addColumn("Assigned"); // Columna para Asignado
         model.addColumn("ETS"); // Columna para ETS (posiblemente una fecha)
         model.addColumn("Description"); // Columna para Descripción
-        model.addColumn("HTML"); // Columna para HTML
+        model.addColumn("Documentacion"); // Columna para Documentacion
 
         // Crear la JTable con el modelo de datos
         table = new JTable(model);
@@ -66,7 +66,7 @@ public class NotStarted extends javax.swing.JFrame {
                     resultSet.getString("Assigned"),
                     resultSet.getDate("ETS"), // Se espera que "ETS" sea una fecha
                     resultSet.getString("Description"),
-                    resultSet.getString("HTML")
+                    resultSet.getString("Documentacion")
                 });
             }
 
@@ -172,7 +172,7 @@ public class NotStarted extends javax.swing.JFrame {
                 resultSet.getString("Assigned"),
                 resultSet.getDate("ETS"), // Se espera que "ETS" sea una fecha
                 resultSet.getString("Description"),
-                resultSet.getString("HTML")
+                resultSet.getString("Documentacion")
             });
         }
 
