@@ -82,9 +82,9 @@ public class CreateTicket extends javax.swing.JFrame {
         jLabel6.setText("New Ticket");
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        TClockNumber.setText("012345");
+        TClockNumber.setText("078856");
 
-        TTitle.setText("Titulo del soporte");
+        TTitle.setText("Test de Kaleb en pruebas");
 
         TPriority.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1- Very High (Urgent Failure)", "2- High (Failure)", "3- Medium (Intermittent or degraded failure)", "4- Low (Changes or updates)", "5- Very Low (Information)" }));
 
@@ -92,6 +92,7 @@ public class CreateTicket extends javax.swing.JFrame {
 
         TDescription.setColumns(20);
         TDescription.setRows(5);
+        TDescription.setText("Estas son pruebas de ejecucion de Kaleb, estos no son tickets validos!!!.\nFavor de no cancelar.");
         jScrollPane1.setViewportView(TDescription);
 
         VentanaFecha.setText("Fecha:" + fecha);
@@ -213,8 +214,8 @@ public class CreateTicket extends javax.swing.JFrame {
 
      int respuesta = JOptionPane.showConfirmDialog(
             null,  // Componente padre (null para cuadro de diálogo independiente)
-            "¿Deseas generar el método?",  // Mensaje
-            "Confirmación",  // Título del cuadro de diálogo
+            "Are you sure you want to create this new ticket?",  // Mensaje
+            "New ticket confirmation",  // Título del cuadro de diálogo    
             JOptionPane.YES_NO_OPTION  // Tipo de botones (Sí y No)
         );
              if (respuesta == JOptionPane.YES_OPTION) {
@@ -304,9 +305,22 @@ mostrarticket();
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-MainMenu ir = new MainMenu();
-ir.showMainMenu();
-this.dispose();
+
+        int respuesta = JOptionPane.showConfirmDialog(
+    null,  // Componente padre (null para cuadro de diálogo independiente)
+    "¿Would you like to go to the Menu?",  // Mensaje que se muestra en el cuadro de diálogo
+    "Menu",  // Título del cuadro de diálogo
+    JOptionPane.YES_NO_OPTION  // Tipo de botones (Sí y No)
+);
+ if (respuesta == JOptionPane.YES_OPTION) {
+             MainMenu ir = new MainMenu();
+             ir.showMainMenu();
+             this.dispose();
+        } else {
+         //El sistema no hace nada
+        }
+        
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
  
@@ -414,7 +428,10 @@ this.dispose();
             }
 
             // Utiliza el valor de 'ultimoID' como desees
-            JOptionPane.showMessageDialog(null, "Tu ticket es FIS-" + ultimoID);
+           // JOptionPane.showMessageDialog(null, "Your new ticket is the FIS-" + ultimoID);
+            String mensaje = "<html>Your new ticket is: <h1><b>FIS-" + ultimoID + "</b></h1></html>";
+JOptionPane.showMessageDialog(null, mensaje);
+
 //   System.out.println("El último ID en la tabla es: " + ultimoID);
         } catch (SQLException e) {
             e.printStackTrace();
