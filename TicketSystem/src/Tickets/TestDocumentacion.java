@@ -201,53 +201,41 @@ public class TestDocumentacion extends javax.swing.JFrame {
  buscarDatos();
     }//GEN-LAST:event_formWindowOpened
 
-
 private void buscarDatos() {
         String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
         String url = "jdbc:ucanaccess://" + ruta;
-     String numeroTicketStr = JOptionPane.showInputDialog(this, "Ingrese el número de ticket:", "Ingresar Número de Ticket", JOptionPane.QUESTION_MESSAGE);
+        String numeroTicketStr = JOptionPane.showInputDialog(this, "Ingrese el número de ticket:", "Ingresar Número de Ticket", JOptionPane.QUESTION_MESSAGE);
 
         try (Connection connection = DriverManager.getConnection(url)) {
-             int NumerodeTicket = Integer.parseInt(numeroTicketStr);
-      String mensaje = "<html>Your Ticket is: <H1><b>FIS-"+NumerodeTicket+"</b></h1></html>";
+            int NumerodeTicket = Integer.parseInt(numeroTicketStr);
+            String mensaje = "<html>Your Ticket is: <H1><b>FIS-" + NumerodeTicket + "</b></h1></html>";
             JOptionPane.showMessageDialog(null, mensaje);
 
-        String query = "SELECT TicketID, Title, Priority, Status, Assigned, ETS, Descripcion, Documentacion FROM TuTabla WHERE TicketID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            String query = "SELECT IDTicket, Title, Priority, Status, Assigned, Description, Documentacion FROM Test WHERE IDTicket = ?";
+ PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, NumerodeTicket);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-         if (resultSet.next()) {
-            // Aquí puedes obtener los valores de las columnas correspondientes
-            int ticketID = resultSet.getInt("TicketID");
-            String title = resultSet.getString("Title");
-            String priority = resultSet.getString("Priority");
-            String status = resultSet.getString("Status");
-            String assigned = resultSet.getString("Assigned");
-            String ets = resultSet.getString("ETS");
-            String descripcion = resultSet.getString("Descripcion");
-            String documentacion = resultSet.getString("Documentacion");
+            modeloTabla.setRowCount(0); // Limpiar la tabla
 
-            // Haz algo con los valores obtenidos, por ejemplo, mostrarlos en tu formulario
-            campoTicketID.setText(String.valueOf(ticketID));
-            campoTitle.setText(title);
-            campoPriority.setText(priority);
-            campoStatus.setText(status);
-            campoAssigned.setText(assigned);
-            campoETS.setText(ets);
-            campoDescripcion.setText(descripcion);
-            campoDocumentacion.setText(documentacion);
-        } else {
-            // Si no se encuentra un registro con ese TicketID, puedes manejarlo aquí
-            JOptionPane.showMessageDialog(this, "No se encontraron datos para el TicketID proporcionado.", "Información", JOptionPane.INFORMATION_MESSAGE);
-        }
+            while (resultSet.next()) {
+                int ticketID = resultSet.getInt("IDTicket");
+                String title = resultSet.getString("Title");
+                String priority = resultSet.getString("Priority");
+                String status = resultSet.getString("Status");
+                String assigned = resultSet.getString("Assigned");
+               // String ets = resultSet.getDate("ETS");
+                String descripcion = resultSet.getString("Description");
+                String documentacion = resultSet.getString("Documentacion");
+
+                // Agregar una fila al modelo de tabla
+                modeloTabla.addRow(new Object[]{ticketID, title, priority, status, assigned, descripcion, documentacion});
+            }
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de errores, puedes personalizarlo según tus necesidades
         }
-
-}
-
+    }
 
     /**
      * @param args the command line arguments
@@ -280,9 +268,13 @@ private void buscarDatos() {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TestDocumentacion().setVisible(true);
+                
+
             }
         });
     }
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Docu;
