@@ -54,9 +54,9 @@ public class TestDocumentacion extends javax.swing.JFrame {
         TituloID = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         InicioTicket = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        PendingCustomerBoton = new javax.swing.JButton();
         TshootBoton = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        PendingVendorBoton = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         EscalatedBoton = new javax.swing.JButton();
@@ -185,7 +185,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
                 .addComponent(TituloID, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(Titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
         BordeTituloLayout.setVerticalGroup(
             BordeTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,10 +213,10 @@ public class TestDocumentacion extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Pending Customer");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        PendingCustomerBoton.setText("Pending Customer");
+        PendingCustomerBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                PendingCustomerBotonActionPerformed(evt);
             }
         });
 
@@ -227,10 +227,10 @@ public class TestDocumentacion extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Pending Vendor");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        PendingVendorBoton.setText("Pending Vendor");
+        PendingVendorBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                PendingVendorBotonActionPerformed(evt);
             }
         });
 
@@ -282,12 +282,12 @@ public class TestDocumentacion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BuscarTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PendingVendorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton7)))
-                .addGap(18, 22, Short.MAX_VALUE)
+                .addGap(18, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BordeTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jInternalFrame2)))
@@ -307,8 +307,8 @@ public class TestDocumentacion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton4)
-                                .addComponent(jButton6)
+                                .addComponent(PendingCustomerBoton)
+                                .addComponent(PendingVendorBoton)
                                 .addComponent(jButton7))
                             .addComponent(BuscarTicket))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -373,7 +373,7 @@ try {
     Date fechaactual = new Date();
     SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     String fechahoracomostring = formatofecha.format(fechaactual);
-    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Iniciado***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Iniciado ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
     //String Documento = Docu.getText(); 
     int IDTicket = 1; // Reemplaza 1 con el ID del ticket que deseas actualizar
     int NumTicket = Integer.parseInt(TituloID.getText());
@@ -424,12 +424,8 @@ try {
 
     }//GEN-LAST:event_InicioTicketActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void TshootBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TshootBotonActionPerformed
-// Definición de la ruta de la base de datos de acceso
+    private void PendingCustomerBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PendingCustomerBotonActionPerformed
+     // Definición de la ruta de la base de datos de acceso
 String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
 // Construcción de la URL de conexión a la base de datos
 String url = "jdbc:ucanaccess://" + ruta;
@@ -442,7 +438,7 @@ SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 String fechahoracomostring = formatofecha.format(fechaactual);
 
 // Construye un documento con la fecha y hora actual y un mensaje
-String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Iniciado***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Pending Customer ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
 
 // Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
 int IDTicket = 1;
@@ -466,7 +462,80 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Troubleshooting".equals(estatus)) {
+            if (!"Pending Customer".equals(estatus) && !"Not Started".equals(estatus)) {
+                // Continuar con la actualización del documento
+
+                // Consulta SQL para actualizar el documento y el estado del ticket
+                String query = "UPDATE Test SET (Documentacion , Status) = (?, ?) WHERE IDTicket = ?";
+
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    preparedStatement.setString(1, Documento);
+                    preparedStatement.setString(2, "Pending Customer");
+                    preparedStatement.setInt(3, NumTicket);
+
+                    int filasAfectadas = preparedStatement.executeUpdate();
+
+                    if (filasAfectadas > 0) {
+                        System.out.println("Documento actualizado con éxito.");
+                    } else {
+                        System.out.println("No se pudo actualizar el documento.");
+                    }
+                }
+                // Actualizar la documentación en la interfaz de usuario
+                refrescardocumentacion();
+            } else {
+                // El ticket ya está en estado "Troubleshooting", muestra un mensaje
+                JOptionPane.showMessageDialog(null, "Este Ticket no se puede poner en Pending Customer\n Su estatus es ''"+estatus+"''");
+            }
+        } else {
+            // No se encontró el ticket en la base de datos, muestra un mensaje
+            JOptionPane.showMessageDialog(null, "No se encontró el ticket en la base de datos.");
+        }
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+}
+    }//GEN-LAST:event_PendingCustomerBotonActionPerformed
+
+    private void TshootBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TshootBotonActionPerformed
+// Definición de la ruta de la base de datos de acceso
+String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+// Construcción de la URL de conexión a la base de datos
+String url = "jdbc:ucanaccess://" + ruta;
+
+// Obtiene la fecha y hora actual
+Date fechaactual = new Date();
+// Formatea la fecha y hora en el formato "dd-MM-yyyy HH:mm:ss"
+SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+// Convierte la fecha y hora formateada en una cadena
+String fechahoracomostring = formatofecha.format(fechaactual);
+
+// Construye un documento con la fecha y hora actual y un mensaje
+String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket in Tshoot ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+
+// Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
+int IDTicket = 1;
+
+// Obtiene el número de ticket desde un componente de la interfaz de usuario (reemplaza con el valor adecuado)
+int NumTicket = Integer.parseInt(TituloID.getText());
+
+// Consulta SQL para obtener el estado del ticket
+String queryestatus = "SELECT Status FROM Test WHERE IDTicket =?";
+try {
+    // Establece la conexión con la base de datos
+    Connection connection = DriverManager.getConnection(url);
+
+    // Obtiene el estado del ticket
+    try (PreparedStatement preparedStatementEstatus = connection.prepareStatement(queryestatus)) {
+        preparedStatementEstatus.setInt(1, NumTicket);
+
+        ResultSet resultSetEstatus = preparedStatementEstatus.executeQuery();
+
+        if (resultSetEstatus.next()) {
+            String estatus = resultSetEstatus.getString("Status");
+
+            // Verifica si el estado del ticket no es "Troubleshooting"
+            if (!"Troubleshooting".equals(estatus) && !"Not Started".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -489,7 +558,7 @@ try {
                 refrescardocumentacion();
             } else {
                 // El ticket ya está en estado "Troubleshooting", muestra un mensaje
-                JOptionPane.showMessageDialog(null, "Este Ticket ya se encuentra en Troubleshooting.");
+                JOptionPane.showMessageDialog(null, "Este Ticket no se puede poner en Troubleshooting\n Su estatus es ''"+estatus+"''");
             }
         } else {
             // No se encontró el ticket en la base de datos, muestra un mensaje
@@ -502,20 +571,8 @@ try {
 
     }//GEN-LAST:event_TshootBotonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void EscalatedBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EscalatedBotonActionPerformed
-       // Definición de la ruta de la base de datos de acceso
+    private void PendingVendorBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PendingVendorBotonActionPerformed
+  // Definición de la ruta de la base de datos de acceso
 String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
 // Construcción de la URL de conexión a la base de datos
 String url = "jdbc:ucanaccess://" + ruta;
@@ -528,7 +585,7 @@ SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 String fechahoracomostring = formatofecha.format(fechaactual);
 
 // Construye un documento con la fecha y hora actual y un mensaje
-String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Iniciado***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Pending Vendor ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
 
 // Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
 int IDTicket = 1;
@@ -552,7 +609,88 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Escalated".equals(estatus)) {
+            if (!"Pending Vendor".equals(estatus) && !"Not Started".equals(estatus)) {
+                // Continuar con la actualización del documento
+
+                // Consulta SQL para actualizar el documento y el estado del ticket
+                String query = "UPDATE Test SET (Documentacion , Status) = (?, ?) WHERE IDTicket = ?";
+
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    preparedStatement.setString(1, Documento);
+                    preparedStatement.setString(2, "Pending Vendor");
+                    preparedStatement.setInt(3, NumTicket);
+
+                    int filasAfectadas = preparedStatement.executeUpdate();
+
+                    if (filasAfectadas > 0) {
+                        System.out.println("Documento actualizado con éxito.");
+                    } else {
+                        System.out.println("No se pudo actualizar el documento.");
+                    }
+                }
+                // Actualizar la documentación en la interfaz de usuario
+                refrescardocumentacion();
+            } else {
+                // El ticket ya está en estado "Troubleshooting", muestra un mensaje
+                JOptionPane.showMessageDialog(null, "Este Ticket no se puede poner en Pending Vendor\n Su estatus es ''"+estatus+"''");
+            }
+        } else {
+            // No se encontró el ticket en la base de datos, muestra un mensaje
+            JOptionPane.showMessageDialog(null, "No se encontró el ticket en la base de datos.");
+        }
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+}
+    }//GEN-LAST:event_PendingVendorBotonActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void EscalatedBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EscalatedBotonActionPerformed
+      // Definición de la ruta de la base de datos de acceso
+String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+// Construcción de la URL de conexión a la base de datos
+String url = "jdbc:ucanaccess://" + ruta;
+
+// Obtiene la fecha y hora actual
+Date fechaactual = new Date();
+// Formatea la fecha y hora en el formato "dd-MM-yyyy HH:mm:ss"
+SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+// Convierte la fecha y hora formateada en una cadena
+String fechahoracomostring = formatofecha.format(fechaactual);
+
+// Construye un documento con la fecha y hora actual y un mensaje
+String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Escalated ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+
+// Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
+int IDTicket = 1;
+
+// Obtiene el número de ticket desde un componente de la interfaz de usuario (reemplaza con el valor adecuado)
+int NumTicket = Integer.parseInt(TituloID.getText());
+
+// Consulta SQL para obtener el estado del ticket
+String queryestatus = "SELECT Status FROM Test WHERE IDTicket =?";
+try {
+    // Establece la conexión con la base de datos
+    Connection connection = DriverManager.getConnection(url);
+
+    // Obtiene el estado del ticket
+    try (PreparedStatement preparedStatementEstatus = connection.prepareStatement(queryestatus)) {
+        preparedStatementEstatus.setInt(1, NumTicket);
+
+        ResultSet resultSetEstatus = preparedStatementEstatus.executeQuery();
+
+        if (resultSetEstatus.next()) {
+            String estatus = resultSetEstatus.getString("Status");
+
+            // Verifica si el estado del ticket no es "Troubleshooting"
+            if (!"Escalated".equals(estatus) && !"Not Started".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -575,7 +713,7 @@ try {
                 refrescardocumentacion();
             } else {
                 // El ticket ya está en estado "Troubleshooting", muestra un mensaje
-                JOptionPane.showMessageDialog(null, "Este Ticket ya se encuentra en Escalated.");
+                JOptionPane.showMessageDialog(null, "Este Ticket no se puede poner en Escalated\n Su estatus es ''"+estatus+"''");
             }
         } else {
             // No se encontró el ticket en la base de datos, muestra un mensaje
@@ -678,14 +816,14 @@ TituloID.setText(""+NumerodeTicket);
     private javax.swing.JTextPane DocumentationPane;
     private javax.swing.JButton EscalatedBoton;
     private javax.swing.JButton InicioTicket;
+    private javax.swing.JButton PendingCustomerBoton;
+    private javax.swing.JButton PendingVendorBoton;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel Titulo1;
     private javax.swing.JLabel TituloID;
     private javax.swing.JButton TshootBoton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JInternalFrame jInternalFrame1;
