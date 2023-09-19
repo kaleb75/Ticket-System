@@ -52,15 +52,15 @@ public class TestDocumentacion extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
         Titulo1 = new javax.swing.JLabel();
         TituloID = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        MenuBotton = new javax.swing.JButton();
         InicioTicket = new javax.swing.JButton();
         PendingCustomerBoton = new javax.swing.JButton();
         TshootBoton = new javax.swing.JButton();
         PendingVendorBoton = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        ValidacionBoton = new javax.swing.JButton();
+        CloseBoton = new javax.swing.JButton();
         EscalatedBoton = new javax.swing.JButton();
-        BuscarTicket = new javax.swing.JButton();
+        BuscarTicketBotton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Documentation");
@@ -199,10 +199,10 @@ public class TestDocumentacion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Menu");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        MenuBotton.setText("Menu");
+        MenuBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                MenuBottonActionPerformed(evt);
             }
         });
 
@@ -234,17 +234,17 @@ public class TestDocumentacion extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setText("Validation");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        ValidacionBoton.setText("Validation");
+        ValidacionBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                ValidacionBotonActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Close");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        CloseBoton.setText("Close");
+        CloseBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                CloseBotonActionPerformed(evt);
             }
         });
 
@@ -255,10 +255,10 @@ public class TestDocumentacion extends javax.swing.JFrame {
             }
         });
 
-        BuscarTicket.setText("Search");
-        BuscarTicket.addActionListener(new java.awt.event.ActionListener() {
+        BuscarTicketBotton.setText("Search");
+        BuscarTicketBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarTicketActionPerformed(evt);
+                BuscarTicketBottonActionPerformed(evt);
             }
         });
 
@@ -270,7 +270,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(MenuBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InicioTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -278,15 +278,15 @@ public class TestDocumentacion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EscalatedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CloseBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(BuscarTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PendingVendorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7)))
+                        .addComponent(ValidacionBoton)))
                 .addGap(18, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BordeTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -299,18 +299,18 @@ public class TestDocumentacion extends javax.swing.JFrame {
                     .addComponent(BordeTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
+                            .addComponent(MenuBotton)
                             .addComponent(InicioTicket)
                             .addComponent(TshootBoton)
                             .addComponent(EscalatedBoton)
-                            .addComponent(jButton8))
+                            .addComponent(CloseBoton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(PendingCustomerBoton)
                                 .addComponent(PendingVendorBoton)
-                                .addComponent(jButton7))
-                            .addComponent(BuscarTicket))))
+                                .addComponent(ValidacionBoton))
+                            .addComponent(BuscarTicketBotton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jInternalFrame2)
@@ -358,13 +358,13 @@ try {
  buscarDatos();
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void MenuBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuBottonActionPerformed
        MainMenu ir = new MainMenu();
        JOptionPane.showMessageDialog(null,"Volviendo al menu...");
        ir.showMainMenu();
        this.dispose();
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_MenuBottonActionPerformed
 
     private void InicioTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioTicketActionPerformed
 
@@ -644,13 +644,154 @@ try {
 }
     }//GEN-LAST:event_PendingVendorBotonActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void ValidacionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValidacionBotonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+         // Definición de la ruta de la base de datos de acceso
+String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+// Construcción de la URL de conexión a la base de datos
+String url = "jdbc:ucanaccess://" + ruta;
+
+// Obtiene la fecha y hora actual
+Date fechaactual = new Date();
+// Formatea la fecha y hora en el formato "dd-MM-yyyy HH:mm:ss"
+SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+// Convierte la fecha y hora formateada en una cadena
+String fechahoracomostring = formatofecha.format(fechaactual);
+
+// Construye un documento con la fecha y hora actual y un mensaje
+String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Validated ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+
+// Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
+int IDTicket = 1;
+
+// Obtiene el número de ticket desde un componente de la interfaz de usuario (reemplaza con el valor adecuado)
+int NumTicket = Integer.parseInt(TituloID.getText());
+
+// Consulta SQL para obtener el estado del ticket
+String queryestatus = "SELECT Status FROM Test WHERE IDTicket =?";
+try {
+    // Establece la conexión con la base de datos
+    Connection connection = DriverManager.getConnection(url);
+
+    // Obtiene el estado del ticket
+    try (PreparedStatement preparedStatementEstatus = connection.prepareStatement(queryestatus)) {
+        preparedStatementEstatus.setInt(1, NumTicket);
+
+        ResultSet resultSetEstatus = preparedStatementEstatus.executeQuery();
+
+        if (resultSetEstatus.next()) {
+            String estatus = resultSetEstatus.getString("Status");
+
+            // Verifica si el estado del ticket no es "Troubleshooting"
+            if (!"Validated".equals(estatus) && !"Not Started".equals(estatus)) {
+                // Continuar con la actualización del documento
+
+                // Consulta SQL para actualizar el documento y el estado del ticket
+                String query = "UPDATE Test SET (Documentacion , Status) = (?, ?) WHERE IDTicket = ?";
+
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    preparedStatement.setString(1, Documento);
+                    preparedStatement.setString(2, "Validated");
+                    preparedStatement.setInt(3, NumTicket);
+
+                    int filasAfectadas = preparedStatement.executeUpdate();
+
+                    if (filasAfectadas > 0) {
+                        System.out.println("Documento actualizado con éxito.");
+                    } else {
+                        System.out.println("No se pudo actualizar el documento.");
+                    }
+                }
+                // Actualizar la documentación en la interfaz de usuario
+                refrescardocumentacion();
+            } else {
+                // El ticket ya está en estado "Troubleshooting", muestra un mensaje
+                JOptionPane.showMessageDialog(null, "Este Ticket no se puede poner en Validated\n Su estatus es ''"+estatus+"''");
+            }
+        } else {
+            // No se encontró el ticket en la base de datos, muestra un mensaje
+            JOptionPane.showMessageDialog(null, "No se encontró el ticket en la base de datos.");
+        }
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+}
+        
+    }//GEN-LAST:event_ValidacionBotonActionPerformed
+
+    private void CloseBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBotonActionPerformed
+
+      // Definición de la ruta de la base de datos de acceso
+String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+// Construcción de la URL de conexión a la base de datos
+String url = "jdbc:ucanaccess://" + ruta;
+
+// Obtiene la fecha y hora actual
+Date fechaactual = new Date();
+// Formatea la fecha y hora en el formato "dd-MM-yyyy HH:mm:ss"
+SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+// Convierte la fecha y hora formateada en una cadena
+String fechahoracomostring = formatofecha.format(fechaactual);
+
+// Construye un documento con la fecha y hora actual y un mensaje
+String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Closed ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+
+// Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
+int IDTicket = 1;
+
+// Obtiene el número de ticket desde un componente de la interfaz de usuario (reemplaza con el valor adecuado)
+int NumTicket = Integer.parseInt(TituloID.getText());
+
+// Consulta SQL para obtener el estado del ticket
+String queryestatus = "SELECT Status FROM Test WHERE IDTicket =?";
+try {
+    // Establece la conexión con la base de datos
+    Connection connection = DriverManager.getConnection(url);
+
+    // Obtiene el estado del ticket
+    try (PreparedStatement preparedStatementEstatus = connection.prepareStatement(queryestatus)) {
+        preparedStatementEstatus.setInt(1, NumTicket);
+
+        ResultSet resultSetEstatus = preparedStatementEstatus.executeQuery();
+
+        if (resultSetEstatus.next()) {
+            String estatus = resultSetEstatus.getString("Status");
+
+            // Verifica si el estado del ticket no es "Troubleshooting"
+            if (!"Closed".equals(estatus) && !"Not Started".equals(estatus) && "Validated".equals(estatus)) {
+                // Continuar con la actualización del documento
+
+                // Consulta SQL para actualizar el documento y el estado del ticket
+                String query = "UPDATE Test SET (Documentacion , Status) = (?, ?) WHERE IDTicket = ?";
+
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    preparedStatement.setString(1, Documento);
+                    preparedStatement.setString(2, "Closed");
+                    preparedStatement.setInt(3, NumTicket);
+
+                    int filasAfectadas = preparedStatement.executeUpdate();
+
+                    if (filasAfectadas > 0) {
+                        System.out.println("Documento actualizado con éxito.");
+                    } else {
+                        System.out.println("No se pudo actualizar el documento.");
+                    }
+                }
+                // Actualizar la documentación en la interfaz de usuario
+                refrescardocumentacion();
+            } else {
+                // El ticket ya está en estado "Troubleshooting", muestra un mensaje
+                JOptionPane.showMessageDialog(null, "Este Ticket no se puede poner en Closed\n Su estatus es ''"+estatus+"''");
+            }
+        } else {
+            // No se encontró el ticket en la base de datos, muestra un mensaje
+            JOptionPane.showMessageDialog(null, "No se encontró el ticket en la base de datos.");
+        }
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+}
+    }//GEN-LAST:event_CloseBotonActionPerformed
 
     private void EscalatedBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EscalatedBotonActionPerformed
       // Definición de la ruta de la base de datos de acceso
@@ -725,11 +866,11 @@ try {
 }
     }//GEN-LAST:event_EscalatedBotonActionPerformed
 
-    private void BuscarTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarTicketActionPerformed
+    private void BuscarTicketBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarTicketBottonActionPerformed
 TestDocumentacion abrir = new TestDocumentacion();
 abrir.setVisible(true);
 this.dispose();
-    }//GEN-LAST:event_BuscarTicketActionPerformed
+    }//GEN-LAST:event_BuscarTicketBottonActionPerformed
 
 private void buscarDatos() {
         String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
@@ -811,21 +952,21 @@ TituloID.setText(""+NumerodeTicket);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BordeTitulo;
     private javax.swing.JButton BotonEnviar;
-    private javax.swing.JButton BuscarTicket;
+    private javax.swing.JButton BuscarTicketBotton;
+    private javax.swing.JButton CloseBoton;
     private javax.swing.JTextArea Docu;
     private javax.swing.JTextPane DocumentationPane;
     private javax.swing.JButton EscalatedBoton;
     private javax.swing.JButton InicioTicket;
+    private javax.swing.JButton MenuBotton;
     private javax.swing.JButton PendingCustomerBoton;
     private javax.swing.JButton PendingVendorBoton;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel Titulo1;
     private javax.swing.JLabel TituloID;
     private javax.swing.JButton TshootBoton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ValidacionBoton;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
