@@ -4,8 +4,7 @@
  */
 package TicketAdmin;
 
-import Tickets.*;
-import Menu.MainMenu;
+import Menu.AdminMenu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -416,9 +415,9 @@ try {
     }//GEN-LAST:event_formWindowOpened
 
     private void MenuBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuBottonActionPerformed
-       MainMenu ir = new MainMenu();
+       AdminMenu ir = new AdminMenu();
        JOptionPane.showMessageDialog(null,"Volviendo al menu...");
-       ir.showMainMenu();
+       ir.setVisible(true);
        this.dispose();
        
     }//GEN-LAST:event_MenuBottonActionPerformed
