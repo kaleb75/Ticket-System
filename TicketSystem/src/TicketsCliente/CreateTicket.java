@@ -1,8 +1,7 @@
 
 package TicketsCliente;
 
-import Tickets.*;
-import Menu.MainMenu;
+import Menu.UserMenu;
 import javax.swing.*;
 import java.awt.*;
 import java.text.SimpleDateFormat;
@@ -314,8 +313,8 @@ mostrarticket();
     JOptionPane.YES_NO_OPTION  // Tipo de botones (Sí y No)
 );
  if (respuesta == JOptionPane.YES_OPTION) {
-             MainMenu ir = new MainMenu();
-             ir.showMainMenu();
+             UserMenu ir = new UserMenu();
+             ir.setVisible(true);
              this.dispose();
         } else {
          //El sistema no hace nada
