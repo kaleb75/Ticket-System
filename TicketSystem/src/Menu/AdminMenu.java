@@ -4,6 +4,10 @@
  */
 package Menu;
 
+import TicketAdmin.CreateTicket;
+import TicketAdmin.NotStarted;
+import TicketAdmin.TestDocumentacion;
+
 /**
  *
  * @author IMX078856
@@ -27,30 +31,96 @@ public class AdminMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        CreateTicketBoton = new javax.swing.JButton();
+        BotonDocumentacion = new javax.swing.JButton();
+        NotStartedBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 200));
 
-        jLabel1.setText("admin");
+        jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        jLabel1.setText("Menu Administrator");
+
+        CreateTicketBoton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        CreateTicketBoton.setText("Create Ticket");
+        CreateTicketBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateTicketBotonActionPerformed(evt);
+            }
+        });
+
+        BotonDocumentacion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        BotonDocumentacion.setText("Documentation");
+        BotonDocumentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonDocumentacionActionPerformed(evt);
+            }
+        });
+
+        NotStartedBoton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        NotStartedBoton.setText("Not Started");
+        NotStartedBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NotStartedBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(NotStartedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(93, 93, 93))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLabel1)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NotStartedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotonDocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDocumentacionActionPerformed
+
+        TestDocumentacion ir = new TestDocumentacion();
+        ir.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_BotonDocumentacionActionPerformed
+
+    private void CreateTicketBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateTicketBotonActionPerformed
+
+        CreateTicket ir = new CreateTicket();
+        ir.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_CreateTicketBotonActionPerformed
+
+    private void NotStartedBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotStartedBotonActionPerformed
+
+        NotStarted ir = new NotStarted();
+        ir.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_NotStartedBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +159,9 @@ public class AdminMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonDocumentacion;
+    private javax.swing.JButton CreateTicketBoton;
+    private javax.swing.JButton NotStartedBoton;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
