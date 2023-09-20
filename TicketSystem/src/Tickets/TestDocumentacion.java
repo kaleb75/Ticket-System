@@ -155,7 +155,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
         jInternalFrame2Layout.setHorizontalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1046, Short.MAX_VALUE)
             .addComponent(jScrollPane2)
         );
         jInternalFrame2Layout.setVerticalGroup(
@@ -185,7 +185,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
                 .addComponent(TituloID, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(Titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BordeTituloLayout.setVerticalGroup(
             BordeTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,63 +199,109 @@ public class TestDocumentacion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        MenuBotton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         MenuBotton.setText("Menu");
+        MenuBotton.setAlignmentY(0.0F);
+        MenuBotton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        MenuBotton.setMaximumSize(new java.awt.Dimension(60, 25));
+        MenuBotton.setMinimumSize(new java.awt.Dimension(60, 25));
+        MenuBotton.setPreferredSize(new java.awt.Dimension(60, 25));
         MenuBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuBottonActionPerformed(evt);
             }
         });
 
+        InicioTicket.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         InicioTicket.setText("Start");
+        InicioTicket.setAlignmentY(0.0F);
+        InicioTicket.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        InicioTicket.setMaximumSize(new java.awt.Dimension(60, 25));
+        InicioTicket.setMinimumSize(new java.awt.Dimension(60, 25));
         InicioTicket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InicioTicketActionPerformed(evt);
             }
         });
 
+        PendingCustomerBoton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         PendingCustomerBoton.setText("Pending Customer");
+        PendingCustomerBoton.setAlignmentY(0.0F);
+        PendingCustomerBoton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PendingCustomerBoton.setMaximumSize(new java.awt.Dimension(60, 25));
+        PendingCustomerBoton.setMinimumSize(new java.awt.Dimension(60, 25));
         PendingCustomerBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PendingCustomerBotonActionPerformed(evt);
             }
         });
 
+        TshootBoton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         TshootBoton.setText("Tshoot");
+        TshootBoton.setAlignmentY(0.0F);
+        TshootBoton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TshootBoton.setMaximumSize(new java.awt.Dimension(60, 25));
+        TshootBoton.setMinimumSize(new java.awt.Dimension(60, 25));
         TshootBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TshootBotonActionPerformed(evt);
             }
         });
 
+        PendingVendorBoton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         PendingVendorBoton.setText("Pending Vendor");
+        PendingVendorBoton.setAlignmentY(0.0F);
+        PendingVendorBoton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PendingVendorBoton.setMaximumSize(new java.awt.Dimension(60, 25));
+        PendingVendorBoton.setMinimumSize(new java.awt.Dimension(60, 25));
         PendingVendorBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PendingVendorBotonActionPerformed(evt);
             }
         });
 
+        ValidacionBoton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         ValidacionBoton.setText("Validation");
+        ValidacionBoton.setAlignmentY(0.0F);
+        ValidacionBoton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ValidacionBoton.setMaximumSize(new java.awt.Dimension(60, 25));
+        ValidacionBoton.setMinimumSize(new java.awt.Dimension(60, 25));
         ValidacionBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ValidacionBotonActionPerformed(evt);
             }
         });
 
+        CloseBoton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         CloseBoton.setText("Close");
+        CloseBoton.setAlignmentY(0.0F);
+        CloseBoton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CloseBoton.setMaximumSize(new java.awt.Dimension(60, 25));
+        CloseBoton.setMinimumSize(new java.awt.Dimension(60, 25));
         CloseBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CloseBotonActionPerformed(evt);
             }
         });
 
+        EscalatedBoton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         EscalatedBoton.setText("Escale");
+        EscalatedBoton.setAlignmentY(0.0F);
+        EscalatedBoton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        EscalatedBoton.setMaximumSize(new java.awt.Dimension(60, 25));
+        EscalatedBoton.setMinimumSize(new java.awt.Dimension(60, 25));
         EscalatedBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EscalatedBotonActionPerformed(evt);
             }
         });
 
+        BuscarTicketBotton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         BuscarTicketBotton.setText("Search");
+        BuscarTicketBotton.setAlignmentY(0.0F);
+        BuscarTicketBotton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BuscarTicketBotton.setMaximumSize(new java.awt.Dimension(60, 25));
+        BuscarTicketBotton.setMinimumSize(new java.awt.Dimension(60, 25));
         BuscarTicketBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarTicketBottonActionPerformed(evt);
@@ -270,28 +316,37 @@ public class TestDocumentacion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(MenuBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(InicioTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TshootBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EscalatedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CloseBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PendingVendorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ValidacionBoton)))
-                .addGap(18, 21, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(MenuBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(InicioTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TshootBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(EscalatedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CloseBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(PendingVendorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ValidacionBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(133, 133, 133)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BordeTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jInternalFrame2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(BordeTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CloseBoton, EscalatedBoton, PendingCustomerBoton, PendingVendorBoton, TshootBoton, ValidacionBoton});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -299,18 +354,18 @@ public class TestDocumentacion extends javax.swing.JFrame {
                     .addComponent(BordeTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(MenuBotton)
-                            .addComponent(InicioTicket)
-                            .addComponent(TshootBoton)
-                            .addComponent(EscalatedBoton)
-                            .addComponent(CloseBoton))
+                            .addComponent(MenuBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InicioTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TshootBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EscalatedBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CloseBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(PendingCustomerBoton)
-                                .addComponent(PendingVendorBoton)
-                                .addComponent(ValidacionBoton))
-                            .addComponent(BuscarTicketBotton))))
+                                .addComponent(PendingVendorBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ValidacionBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jInternalFrame2)
@@ -462,7 +517,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Pending Customer".equals(estatus) && !"Not Started".equals(estatus)) {
+            if (!"Pending Customer".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -535,7 +590,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Troubleshooting".equals(estatus) && !"Not Started".equals(estatus)) {
+            if (!"Troubleshooting".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -609,7 +664,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Pending Vendor".equals(estatus) && !"Not Started".equals(estatus)) {
+            if (!"Pending Vendor".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -683,7 +738,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Validated".equals(estatus) && !"Not Started".equals(estatus)) {
+            if (!"Validated".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -831,7 +886,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Escalated".equals(estatus) && !"Not Started".equals(estatus)) {
+            if (!"Escalated".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus) ) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
