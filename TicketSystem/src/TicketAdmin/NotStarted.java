@@ -1,7 +1,6 @@
 package TicketAdmin;
 
-import Tickets.*;
-import Menu.MainMenu;
+import Menu.AdminMenu;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -100,8 +99,8 @@ public class NotStarted extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Código para volver al menú principal
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.showMainMenu();
+                AdminMenu mainMenu = new AdminMenu();
+                mainMenu.setVisible(true);
                 dispose(); // Cierra la ventana actual
             }
         });
