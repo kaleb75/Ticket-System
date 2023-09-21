@@ -61,6 +61,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
         CloseBoton = new javax.swing.JButton();
         EscalatedBoton = new javax.swing.JButton();
         BuscarTicketBotton = new javax.swing.JButton();
+        ReOpenBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Documentation");
@@ -308,6 +309,18 @@ public class TestDocumentacion extends javax.swing.JFrame {
             }
         });
 
+        ReOpenBoton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        ReOpenBoton.setText("Reopen");
+        ReOpenBoton.setAlignmentY(0.0F);
+        ReOpenBoton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ReOpenBoton.setMaximumSize(new java.awt.Dimension(60, 25));
+        ReOpenBoton.setMinimumSize(new java.awt.Dimension(60, 25));
+        ReOpenBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReOpenBotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -335,7 +348,9 @@ public class TestDocumentacion extends javax.swing.JFrame {
                                 .addComponent(PendingVendorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ValidacionBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(133, 133, 133)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ReOpenBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(67, 67, 67)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
@@ -363,7 +378,8 @@ public class TestDocumentacion extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(PendingVendorBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ValidacionBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(ValidacionBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ReOpenBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
@@ -518,7 +534,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Pending Customer".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus)) {
+            if (!"Pending Customer".equals(estatus) && !"Not Started".equals(estatus) && !"Closed".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -591,7 +607,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Troubleshooting".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus)) {
+            if (!"Troubleshooting".equals(estatus) && !"Not Started".equals(estatus) && !"Closed".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -665,7 +681,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Pending Vendor".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus)) {
+            if (!"Pending Vendor".equals(estatus) && !"Not Started".equals(estatus) && !"Closed".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -739,7 +755,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Validated".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus)) {
+            if (!"Validated".equals(estatus) && !"Not Started".equals(estatus) && !"Closed".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -814,7 +830,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Closed".equals(estatus) && !"Not Started".equals(estatus) && "Validated".equals(estatus)) {
+            if (!"Closed".equals(estatus) && "Validated".equals(estatus)) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -887,7 +903,7 @@ try {
             String estatus = resultSetEstatus.getString("Status");
 
             // Verifica si el estado del ticket no es "Troubleshooting"
-            if (!"Escalated".equals(estatus) && !"Not Started".equals(estatus)&& "Close".equals(estatus) ) {
+            if (!"Escalated".equals(estatus) && !"Not Started".equals(estatus) && !"Closed".equals(estatus) ) {
                 // Continuar con la actualización del documento
 
                 // Consulta SQL para actualizar el documento y el estado del ticket
@@ -927,6 +943,62 @@ TestDocumentacion abrir = new TestDocumentacion();
 abrir.setVisible(true);
 this.dispose();
     }//GEN-LAST:event_BuscarTicketBottonActionPerformed
+
+    private void ReOpenBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReOpenBotonActionPerformed
+       String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+    String url = "jdbc:ucanaccess://" + ruta;
+    Date fechaactual = new Date();
+    SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    String fechahoracomostring = formatofecha.format(fechaactual);
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Reabierto ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+    //String Documento = Docu.getText(); 
+    int IDTicket = 1; // Reemplaza 1 con el ID del ticket que deseas actualizar
+    int NumTicket = Integer.parseInt(TituloID.getText());
+
+    String queryestatus = "SELECT Status FROM Test WHERE IDTicket =?";
+    try {
+        Connection connection = DriverManager.getConnection(url);
+
+        // Obtener el estado del ticket
+        try (PreparedStatement preparedStatementEstatus = connection.prepareStatement(queryestatus)) {
+            preparedStatementEstatus.setInt(1, NumTicket);
+
+            ResultSet resultSetEstatus = preparedStatementEstatus.executeQuery();
+
+            if (resultSetEstatus.next()) {
+                String estatus = resultSetEstatus.getString("Status");
+
+                if ("Closed".equals(estatus)) {
+                    // Continuar con la actualización del documento
+                    String query = "UPDATE Test SET (Documentacion , Status) = (?, ?) WHERE IDTicket = ?";
+
+                    try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                        preparedStatement.setString(1, Documento);
+                        preparedStatement.setString(2, "In progress");
+                        preparedStatement.setInt(3, NumTicket);
+
+                        int filasAfectadas = preparedStatement.executeUpdate();
+
+                        if (filasAfectadas > 0) {
+                            System.out.println("Documento actualizado con éxito.");
+                        } else {
+                            System.out.println("No se pudo actualizar el documento.");
+                        }
+                    }
+                    refrescardocumentacion();
+                } else {
+                    // El ticket no tiene estado "Not Started", mostrar mensaje
+                    JOptionPane.showMessageDialog(null, "Este ticket no es nuevo, no se puede Re abrir.");
+                }
+            } else {
+                // No se encontró el ticket en la base de datos
+                JOptionPane.showMessageDialog(null, "No se encontró el ticket en la base de datos.");
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_ReOpenBotonActionPerformed
 
 private void buscarDatos() {
         String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
@@ -1018,6 +1090,7 @@ TituloID.setText(""+NumerodeTicket);
     private javax.swing.JButton MenuBotton;
     private javax.swing.JButton PendingCustomerBoton;
     private javax.swing.JButton PendingVendorBoton;
+    private javax.swing.JButton ReOpenBoton;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel Titulo1;
     private javax.swing.JLabel TituloID;
