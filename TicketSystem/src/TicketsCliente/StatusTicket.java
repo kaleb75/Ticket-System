@@ -4,6 +4,16 @@
  */
 package TicketsCliente;
 
+import Menu.UserMenu;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author IMX078856
@@ -27,31 +37,165 @@ public class StatusTicket extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        TituloID = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        TTitle = new javax.swing.JTextField();
+        TStatus = new javax.swing.JTextField();
+        TEST = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TDocumentation = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        MenuBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 0));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                AskTicket(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         jLabel1.setText("Status Ticket");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        jLabel2.setText("Title:");
+
+        TituloID.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        TituloID.setText("000");
+
+        Titulo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Titulo.setText("FIS-");
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        jLabel3.setText("Status:");
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        jLabel4.setText("ETS:");
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        jLabel5.setText("Documentation:");
+
+        TTitle.setEditable(false);
+
+        TStatus.setEditable(false);
+
+        TEST.setEditable(false);
+
+        TDocumentation.setEditable(false);
+        TDocumentation.setColumns(20);
+        TDocumentation.setRows(5);
+        jScrollPane1.setViewportView(TDocumentation);
+
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 20)); // NOI18N
+        jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        MenuBoton.setFont(new java.awt.Font("Dialog", 3, 20)); // NOI18N
+        MenuBoton.setText("MENU");
+        MenuBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(351, 351, 351)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MenuBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(129, 129, 129)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(403, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TituloID, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(418, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TTitle)
+                    .addComponent(TStatus)
+                    .addComponent(TEST)
+                    .addComponent(jScrollPane1))
+                .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(453, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Titulo)
+                            .addComponent(TituloID)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(MenuBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TTitle)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(TStatus))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TEST, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AskTicket(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AskTicket
+        /*
+        * Esto esta hecho para preguntar automaticamente el numero del ticket que se necesita (This is done to automatically ask for the ticket number needed.)
+        */
+        buscarDatos(); //Ejecutara el medoto de buscar los datos (Execute the data search function.)
+    }//GEN-LAST:event_AskTicket
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+StatusTicket ir = new StatusTicket();
+ir.setVisible(true);
+this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void MenuBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuBotonActionPerformed
+/*
+    UserMenu ir = new UserMenu();
+    ir.setVisible(true);
+    this.dispose();*/
+buscarDatos();
+        
+    }//GEN-LAST:event_MenuBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +233,67 @@ public class StatusTicket extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton MenuBoton;
+    private javax.swing.JTextArea TDocumentation;
+    private javax.swing.JTextField TEST;
+    private javax.swing.JTextField TStatus;
+    private javax.swing.JTextField TTitle;
+    private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel TituloID;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-}
+
+private void buscarDatos() {
+    String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+    String url = "jdbc:ucanaccess://" + ruta;
+    String numeroTicketStr = JOptionPane.showInputDialog(this, "Ingrese el número de ticket:", "Ingresar Número de Ticket", JOptionPane.QUESTION_MESSAGE);
+
+    try (Connection connection = DriverManager.getConnection(url)) {
+        int numeroDeTicket = Integer.parseInt(numeroTicketStr);
+        String mensaje = "<html>Your Ticket is: <H1><b>FIS-" + numeroDeTicket + "</b></h1></html>";
+        JOptionPane.showMessageDialog(null, mensaje);
+
+        String query = "SELECT IDTicket, Title, Priority, Status, ETS, Documentacion FROM Test WHERE IDTicket = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, numeroDeTicket);
+        TituloID.setText("" + numeroDeTicket);
+
+        // Limpiar el modelo de tabla
+        //modeloTabla.setRowCount(0);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+            
+             int ticketID = resultSet.getInt("IDTicket");
+            String title = resultSet.getString("Title");
+           // String priority = resultSet.getString("Priority");
+            String status = resultSet.getString("Status");
+            //String assigned = resultSet.getString("Assigned");
+            Date ets = resultSet.getDate("ETS");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    String etss = (ets != null) ? dateFormat.format(ets) : ""; // Formatear la fecha o dejarla en blanco si es nula
+    TEST.setText(etss);
+            String documentacion = resultSet.getString("Documentacion");
+            
+
+/*
+            // Agregar una fila al modelo de tabla
+            modeloTabla.addRow(new Object[]{ticketID, title, priority, status, assigned, ets, descripcion});*/
+            TTitle.setText(title);
+            TStatus.setText(status);
+            TEST.setText(etss);
+            TDocumentation.setText(documentacion);
+
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace(); // Manejo de errores, puedes personalizarlo según tus necesidades
+    }
+}}
