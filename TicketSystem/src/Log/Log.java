@@ -55,10 +55,10 @@ public class Log extends javax.swing.JFrame {
         Pass.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel1.setText("Contrasena:");
+        jLabel1.setText("Password:");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("Usuario:");
+        jLabel2.setText("User:");
 
         User.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 

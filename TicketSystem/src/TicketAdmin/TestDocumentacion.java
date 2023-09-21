@@ -1000,45 +1000,51 @@ this.dispose();
     }
     }//GEN-LAST:event_ReOpenBotonActionPerformed
 
+/**
+ * Este método busca y muestra información de un ticket en la base de datos
+ * según el número de ticket proporcionado por el usuario.
+ * (This method searches and displays information about a ticket in the database
+ * based on the ticket number provided by the user.)
+ */
 private void buscarDatos() {
-        String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
-        String url = "jdbc:ucanaccess://" + ruta;
-        String numeroTicketStr = JOptionPane.showInputDialog(this, "Ingrese el número de ticket:", "Ingresar Número de Ticket", JOptionPane.QUESTION_MESSAGE);
+    String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+    String url = "jdbc:ucanaccess://" + ruta;
+    String numeroTicketStr = JOptionPane.showInputDialog(this, "Ingrese el número de ticket:", "Ingresar Número de Ticket", JOptionPane.QUESTION_MESSAGE);
 
-        try (Connection connection = DriverManager.getConnection(url)) {
-            int NumerodeTicket = Integer.parseInt(numeroTicketStr);
-            String mensaje = "<html>Your Ticket is: <H1><b>FIS-" + NumerodeTicket + "</b></h1></html>";
-            JOptionPane.showMessageDialog(null, mensaje);
+    try (Connection connection = DriverManager.getConnection(url)) {
+        int numeroDeTicket = Integer.parseInt(numeroTicketStr);
+        String mensaje = "<html>Your Ticket is: <H1><b>FIS-" + numeroDeTicket + "</b></h1></html>";
+        JOptionPane.showMessageDialog(null, mensaje);
 
-            String query = "SELECT IDTicket, Title, Priority, Status, Assigned, ETS, Description, Documentacion FROM Test WHERE IDTicket = ?";
- PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, NumerodeTicket);
-TituloID.setText(""+NumerodeTicket);
-            //TituloID.setText(""+NumerodeTicket);
-            ResultSet resultSet = preparedStatement.executeQuery();
+        String query = "SELECT IDTicket, Title, Priority, Status, Assigned, ETS, Description, Documentacion FROM Test WHERE IDTicket = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, numeroDeTicket);
+        TituloID.setText("" + numeroDeTicket);
 
-            modeloTabla.setRowCount(0); // Limpiar la tabla
+        // Limpiar el modelo de tabla
+        modeloTabla.setRowCount(0);
 
-            while (resultSet.next()) {
-                int ticketID = resultSet.getInt("IDTicket");
-                String title = resultSet.getString("Title");
-                String priority = resultSet.getString("Priority");
-                String status = resultSet.getString("Status");
-                String assigned = resultSet.getString("Assigned");
-                Date ets = resultSet.getDate("ETS");
-                //String ets = resultSet.getDate("ETS");
-                String descripcion = resultSet.getString("Description");
-                String documentacion = resultSet.getString("Documentacion");
+        ResultSet resultSet = preparedStatement.executeQuery();
 
-                // Agregar una fila al modelo de tabla
-                modeloTabla.addRow(new Object[]{ticketID, title, priority, status, assigned, ets, descripcion,});
-                   DocumentationPane.setText(documentacion);
-            }
-        
-        } catch (SQLException e) {
-            e.printStackTrace(); // Manejo de errores, puedes personalizarlo según tus necesidades
+        while (resultSet.next()) {
+            int ticketID = resultSet.getInt("IDTicket");
+            String title = resultSet.getString("Title");
+            String priority = resultSet.getString("Priority");
+            String status = resultSet.getString("Status");
+            String assigned = resultSet.getString("Assigned");
+            Date ets = resultSet.getDate("ETS");
+            String descripcion = resultSet.getString("Description");
+            String documentacion = resultSet.getString("Documentacion");
+
+            // Agregar una fila al modelo de tabla
+            modeloTabla.addRow(new Object[]{ticketID, title, priority, status, assigned, ets, descripcion});
+            DocumentationPane.setText(documentacion);
         }
+
+    } catch (SQLException e) {
+        e.printStackTrace(); // Manejo de errores, puedes personalizarlo según tus necesidades
     }
+}
 
     /**
      * @param args the command line arguments

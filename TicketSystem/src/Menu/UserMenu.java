@@ -4,6 +4,9 @@
  */
 package Menu;
 
+import TicketsCliente.CreateTicket;
+import TicketsCliente.StatusTicket;
+
 /**
  *
  * @author IMX078856
@@ -27,30 +30,78 @@ public class UserMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        CreateTicketBoton = new javax.swing.JButton();
+        BotonDocumentacion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("user");
+        jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        jLabel1.setText("USER MENU");
+
+        CreateTicketBoton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        CreateTicketBoton.setText("Create Ticket");
+        CreateTicketBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateTicketBotonActionPerformed(evt);
+            }
+        });
+
+        BotonDocumentacion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        BotonDocumentacion.setText("Status");
+        BotonDocumentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonDocumentacionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addGap(126, 126, 126)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(95, 95, 95))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {BotonDocumentacion, CreateTicketBoton});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLabel1)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CreateTicketBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateTicketBotonActionPerformed
+
+        CreateTicket ir = new CreateTicket();
+        ir.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_CreateTicketBotonActionPerformed
+
+    private void BotonDocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDocumentacionActionPerformed
+
+        StatusTicket ir = new StatusTicket();
+        ir.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_BotonDocumentacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +140,8 @@ public class UserMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonDocumentacion;
+    private javax.swing.JButton CreateTicketBoton;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
