@@ -189,11 +189,10 @@ this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void MenuBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuBotonActionPerformed
-/*
+
     UserMenu ir = new UserMenu();
     ir.setVisible(true);
-    this.dispose();*/
-buscarDatos();
+    this.dispose();
         
     }//GEN-LAST:event_MenuBotonActionPerformed
 
