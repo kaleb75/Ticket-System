@@ -7,7 +7,7 @@ package Menu;
 import TicketAdmin.CreateTicket;
 import TicketAdmin.NotStarted;
 import TicketAdmin.TestDocumentacion;
-import TicketAdmin.NewUser;
+import TicketAdmin.UserManager;
 
 /**
  *
@@ -142,7 +142,7 @@ public class AdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_NotStartedBotonActionPerformed
 
     private void NotStartedBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotStartedBoton1ActionPerformed
-        NewUser ir = new NewUser();
+        UserManager ir = new UserManager();
         ir.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_NotStartedBoton1ActionPerformed
