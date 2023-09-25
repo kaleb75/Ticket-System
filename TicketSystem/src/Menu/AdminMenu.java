@@ -68,7 +68,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
 
         NotStartedBoton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        NotStartedBoton1.setText("New User");
+        NotStartedBoton1.setText("User Manager");
         NotStartedBoton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NotStartedBoton1ActionPerformed(evt);
