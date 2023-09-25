@@ -175,7 +175,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void setusuario(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_setusuario
    String usuarioActual = Sesion.getUsuarioActual();
-    Usuariosystema.setText("Usuario:" + usuarioActual);
+    Usuariosystema.setText("Usuario:" + usuarioActual+"👨");
 
     if (usuarioActual == null) {
         JOptionPane.showMessageDialog(null, "No hay un usuario conectado");
