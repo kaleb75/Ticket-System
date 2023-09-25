@@ -4,10 +4,13 @@
  */
 package Menu;
 
+import Log.Log;
+import Log.Sesion;
 import TicketAdmin.CreateTicket;
 import TicketAdmin.NotStarted;
 import TicketAdmin.TestDocumentacion;
 import TicketAdmin.UserManager;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,10 +38,18 @@ public class AdminMenu extends javax.swing.JFrame {
         CreateTicketBoton = new javax.swing.JButton();
         BotonDocumentacion = new javax.swing.JButton();
         NotStartedBoton = new javax.swing.JButton();
-        NotStartedBoton1 = new javax.swing.JButton();
+        UserManagerBoton = new javax.swing.JButton();
+        Usuariosystema = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu Administrator");
         setLocation(new java.awt.Point(500, 200));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                setusuario(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         jLabel1.setText("Menu Administrator");
@@ -67,11 +78,20 @@ public class AdminMenu extends javax.swing.JFrame {
             }
         });
 
-        NotStartedBoton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        NotStartedBoton1.setText("User Manager");
-        NotStartedBoton1.addActionListener(new java.awt.event.ActionListener() {
+        UserManagerBoton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        UserManagerBoton.setText("User Manager");
+        UserManagerBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NotStartedBoton1ActionPerformed(evt);
+                UserManagerBotonActionPerformed(evt);
+            }
+        });
+
+        Usuariosystema.setText("Usuario:");
+
+        jButton1.setText("Log Off");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -79,21 +99,24 @@ public class AdminMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(93, 93, 93))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(UserManagerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NotStartedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Usuariosystema, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(NotStartedBoton1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(106, 106, 106)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(NotStartedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(197, 197, 197)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {BotonDocumentacion, CreateTicketBoton, NotStartedBoton});
@@ -101,17 +124,20 @@ public class AdminMenu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(Usuariosystema)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NotStartedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NotStartedBoton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addComponent(UserManagerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,11 +167,30 @@ public class AdminMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_NotStartedBotonActionPerformed
 
-    private void NotStartedBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotStartedBoton1ActionPerformed
+    private void UserManagerBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserManagerBotonActionPerformed
         UserManager ir = new UserManager();
         ir.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_NotStartedBoton1ActionPerformed
+    }//GEN-LAST:event_UserManagerBotonActionPerformed
+
+    private void setusuario(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_setusuario
+   String usuarioActual = Sesion.getUsuarioActual();
+    Usuariosystema.setText("Usuario:" + usuarioActual);
+
+    if (usuarioActual == null) {
+        JOptionPane.showMessageDialog(null, "No hay un usuario conectado");
+        this.dispose(); // Cierra la ventana actual
+    } else {
+        // Lógica adicional si el usuario no es null
+    }
+
+    }//GEN-LAST:event_setusuario
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Log ir = new Log();
+        ir.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,7 +232,9 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JButton BotonDocumentacion;
     private javax.swing.JButton CreateTicketBoton;
     private javax.swing.JButton NotStartedBoton;
-    private javax.swing.JButton NotStartedBoton1;
+    private javax.swing.JButton UserManagerBoton;
+    private javax.swing.JLabel Usuariosystema;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
