@@ -4,8 +4,10 @@
  */
 package Menu;
 
+import Log.Sesion;
 import TicketsCliente.CreateTicket;
 import TicketsCliente.StatusTicket;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,9 +34,16 @@ public class UserMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         CreateTicketBoton = new javax.swing.JButton();
         BotonDocumentacion = new javax.swing.JButton();
+        Usuariosystema = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("User Menu");
         setLocation(new java.awt.Point(600, 300));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                setusuario(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         jLabel1.setText("USER MENU");
@@ -55,20 +64,26 @@ public class UserMenu extends javax.swing.JFrame {
             }
         });
 
+        Usuariosystema.setText("Usuario:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(95, 95, 95))
+                .addComponent(Usuariosystema, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {BotonDocumentacion, CreateTicketBoton});
@@ -76,13 +91,14 @@ public class UserMenu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(Usuariosystema, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CreateTicketBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BotonDocumentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,6 +119,18 @@ public class UserMenu extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_BotonDocumentacionActionPerformed
+
+    private void setusuario(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_setusuario
+           String usuarioActual = Sesion.getUsuarioActual();
+    Usuariosystema.setText("Usuario:" + usuarioActual);
+
+    if (usuarioActual == null) {
+        JOptionPane.showMessageDialog(null, "No hay un usuario conectado");
+        this.dispose(); // Cierra la ventana actual
+    } else {
+        // Lógica adicional si el usuario no es null
+    }
+    }//GEN-LAST:event_setusuario
 
     /**
      * @param args the command line arguments
@@ -143,6 +171,7 @@ public class UserMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonDocumentacion;
     private javax.swing.JButton CreateTicketBoton;
+    private javax.swing.JLabel Usuariosystema;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
