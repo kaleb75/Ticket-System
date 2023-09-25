@@ -11,8 +11,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -133,13 +131,13 @@ metodolog();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -176,31 +174,41 @@ private void metodolog() {
         }
 
         Connection connection = DriverManager.getConnection(url);
-        String query = "SELECT Pass, Level FROM Usuarios WHERE Usuarioo = ?";
+        String query = "SELECT Pass, Admin FROM Usuarios WHERE Usuarioo = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, userr);
         ResultSet resultSet = preparedStatement.executeQuery();
 
         if (resultSet.next()) {
             String storedPassword = resultSet.getString("Pass");
-            int userLevel = resultSet.getInt("Level");
+            int userAdmin = resultSet.getInt("Admin");
 
             if (storedPassword.equals(password)) {
                 JOptionPane.showMessageDialog(null, "Acceso concedido");
 
                 // Verifica el nivel de usuario y abre el menú correspondiente
-                if (userLevel == 1) {
+                if (userAdmin == 1) {
                     // El usuario es administrador.
                     // Abre el menú de administrador (AdminMenu).
                     AdminMenu adminMenu = new AdminMenu();
                     adminMenu.setVisible(true);
                     this.dispose();
+                    if (storedPassword.equals(password)) {
+    Sesion.setUsuarioActual(userr); // Establece el usuario actual
+    JOptionPane.showMessageDialog(null, "Acceso concedido");
+    // Resto del código
+}
                 } else {
                     // El usuario es nivel usuario.
                     // Abre el menú de usuario (UserMenu).
                     UserMenu userMenu = new UserMenu();
                     userMenu.setVisible(true);
                     this.dispose();
+                    if (storedPassword.equals(password)) {
+    Sesion.setUsuarioActual(userr); // Establece el usuario actual
+    JOptionPane.showMessageDialog(null, "Acceso concedido");
+    // Resto del código
+}
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Acceso denegado", JOptionPane.ERROR_MESSAGE);
