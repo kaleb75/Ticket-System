@@ -7,6 +7,7 @@ package Menu;
 import TicketAdmin.CreateTicket;
 import TicketAdmin.NotStarted;
 import TicketAdmin.TestDocumentacion;
+import TicketAdmin.NewUser;
 
 /**
  *
@@ -141,7 +142,9 @@ public class AdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_NotStartedBotonActionPerformed
 
     private void NotStartedBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotStartedBoton1ActionPerformed
-        // TODO add your handling code here:
+        NewUser ir = new NewUser();
+        ir.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_NotStartedBoton1ActionPerformed
 
     /**
