@@ -66,6 +66,7 @@ public class UserManager extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("User Manager");
         setLocation(new java.awt.Point(250, 150));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
@@ -88,7 +89,7 @@ public class UserManager extends javax.swing.JFrame {
         TLastName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         LDept.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        LDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IT-FIS", "WareHouse", "SMT" }));
+        LDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IT-FIS", "WH", "SMT", "IT-OA", "PE", "PM", "Shipping", "QA", " " }));
         LDept.setSelectedItem(null);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
