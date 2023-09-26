@@ -45,7 +45,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        TPriority1 = new javax.swing.JComboBox<>();
+        ComboP = new javax.swing.JComboBox<>();
         UpdatePriority = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         usuarioticket = new javax.swing.JLabel();
@@ -109,7 +109,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
 
         jLabel3.setText("Priority:");
 
-        TPriority1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1- Very High (Urgent Failure)", "2- High (Failure)", "3- Medium (Intermittent or degraded failure)", "4- Low (Changes or updates)", "5- Very Low (Information)" }));
+        ComboP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1- Very High (Urgent Failure)", "2- High (Failure)", "3- Medium (Intermittent or degraded failure)", "4- Low (Changes or updates)", "5- Very Low (Information)" }));
 
         UpdatePriority.setText("✔");
         UpdatePriority.addActionListener(new java.awt.event.ActionListener() {
@@ -147,9 +147,9 @@ public class TestDocumentacion extends javax.swing.JFrame {
                             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BotonEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                                .addComponent(BotonEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                                .addComponent(TPriority1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ComboP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(UpdatePriority, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -173,7 +173,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(TPriority1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(UpdatePriority))
                 .addGap(26, 26, 26))
         );
@@ -1130,7 +1130,36 @@ this.dispose();
     }//GEN-LAST:event_ReOpenBotonActionPerformed
 
     private void UpdatePriorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdatePriorityActionPerformed
-        // TODO add your handling code here:
+          // Obtén la nueva prioridad seleccionada por el usuario desde el JComboBox
+    String nuevaPrioridad = ComboP.getSelectedItem().toString();
+
+    // Verifica si se seleccionó una nueva prioridad válida
+    if (nuevaPrioridad != null && !nuevaPrioridad.isEmpty()) {
+        // Conecta con la base de datos y actualiza la prioridad del ticket
+        String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+        String url = "jdbc:ucanaccess://" + ruta;
+int t = Integer.parseInt( TituloID.getText());
+        try (Connection connection = DriverManager.getConnection(url)) {
+            // Actualiza el campo de prioridad en la tabla Tickets
+            String updateQuery = "UPDATE Test SET Priority = ? WHERE IDTicket = ?"; // Ajusta el nombre de la tabla y los campos según tu base de datos
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.setString(1, nuevaPrioridad);
+            preparedStatement.setInt(2,t ); // Reemplaza con el ID del ticket específico que deseas actualizar
+            int filasAfectadas = preparedStatement.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                JOptionPane.showMessageDialog(null, "Prioridad actualizada correctamente.");
+                // Realiza cualquier otra acción o actualización necesaria después de actualizar la prioridad.
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo actualizar la prioridad.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al actualizar la prioridad: " + e.getMessage(), "Error de Base de Datos", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Seleccione una nueva prioridad válida.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    refrescardocumentacion();
     }//GEN-LAST:event_UpdatePriorityActionPerformed
 
     private void AssingtoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssingtoBotonActionPerformed
@@ -1232,6 +1261,7 @@ private void buscarDatos() {
     private javax.swing.JButton BotonEnviar;
     private javax.swing.JButton BuscarTicketBotton;
     private javax.swing.JButton CloseBoton;
+    private javax.swing.JComboBox<String> ComboP;
     private javax.swing.JTextArea Docu;
     private javax.swing.JTextPane DocumentationPane;
     private javax.swing.JButton EscalatedBoton;
@@ -1240,7 +1270,6 @@ private void buscarDatos() {
     private javax.swing.JButton PendingCustomerBoton;
     private javax.swing.JButton PendingVendorBoton;
     private javax.swing.JButton ReOpenBoton;
-    private javax.swing.JComboBox<String> TPriority1;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel Titulo1;
     private javax.swing.JLabel TituloID;
