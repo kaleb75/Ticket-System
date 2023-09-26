@@ -4,6 +4,7 @@
  */
 package TicketAdmin;
 
+import Log.Sesion;
 import Menu.AdminMenu;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -66,12 +67,14 @@ public class TestDocumentacion extends javax.swing.JFrame {
         BuscarTicketBotton = new javax.swing.JButton();
         ReOpenBoton = new javax.swing.JButton();
         AssingtoBoton = new javax.swing.JButton();
+        Usuariosystema = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Documentation");
+        setTitle("Ticket administrator");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+                CheckUser(evt);
             }
         });
 
@@ -184,7 +187,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
         jInternalFrame2Layout.setHorizontalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1046, Short.MAX_VALUE)
+            .addComponent(jScrollPane3)
             .addComponent(jScrollPane2)
         );
         jInternalFrame2Layout.setVerticalGroup(
@@ -361,41 +364,44 @@ public class TestDocumentacion extends javax.swing.JFrame {
             }
         });
 
+        Usuariosystema.setText("Usuario:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(MenuBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(MenuBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PendingVendorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ValidacionBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ReOpenBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(InicioTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TshootBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(EscalatedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CloseBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(AssingtoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jInternalFrame2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BordeTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(PendingVendorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ValidacionBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ReOpenBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Usuariosystema, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(InicioTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TshootBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EscalatedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CloseBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(AssingtoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addComponent(BordeTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jInternalFrame2))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CloseBoton, EscalatedBoton, PendingCustomerBoton, PendingVendorBoton, TshootBoton, ValidacionBoton});
@@ -418,7 +424,8 @@ public class TestDocumentacion extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(PendingVendorBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(ValidacionBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ReOpenBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(ReOpenBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Usuariosystema))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
@@ -886,7 +893,7 @@ String fechahoracomostring = formatofecha.format(fechaactual);
             // El usuario canceló el cuadro de diálogo
             System.out.println("No se ingresó ningún mensaje.");
         }
-    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Escaladp ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Closed ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
 // Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
 int IDTicket = 1;
 
@@ -1036,7 +1043,18 @@ this.dispose();
     Date fechaactual = new Date();
     SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     String fechahoracomostring = formatofecha.format(fechaactual);
-    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Reabierto ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+  String mensajepopup = JOptionPane.showInputDialog(null, "Comentario: ", "Comentario de estatus", JOptionPane.INFORMATION_MESSAGE);
+        // Verificar si el usuario ingresó un mensaje o canceló el cuadro de diálogo
+        if (mensajepopup != null) {
+            // El usuario ingresó un mensaje, podemos usarlo
+            System.out.println("Mensaje ingresado: " + mensajepopup);
+        } else {
+            // El usuario canceló el cuadro de diálogo
+            System.out.println("No se ingresó ningún mensaje.");
+        }
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Reopen ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
+
+
     //String Documento = Docu.getText(); 
     int IDTicket = 1; // Reemplaza 1 con el ID del ticket que deseas actualizar
     int NumTicket = Integer.parseInt(TituloID.getText());
@@ -1093,6 +1111,11 @@ this.dispose();
     private void AssingtoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssingtoBotonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AssingtoBotonActionPerformed
+
+    private void CheckUser(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CheckUser
+        setuser();
+
+    }//GEN-LAST:event_CheckUser
 
 /**
  * Este método busca y muestra información de un ticket en la base de datos
@@ -1198,6 +1221,7 @@ private void buscarDatos() {
     private javax.swing.JLabel TituloID;
     private javax.swing.JButton TshootBoton;
     private javax.swing.JButton UpdatePriority;
+    private javax.swing.JLabel Usuariosystema;
     private javax.swing.JButton ValidacionBoton;
     private javax.swing.JButton jButton2;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -1247,5 +1271,17 @@ TituloID.setText(""+NumerodeTicket);
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de errores, puedes personalizarlo según tus necesidades
         }
+    }
+
+    private void setuser() {
+   String usuarioActual = Sesion.getUsuarioActual();
+    Usuariosystema.setText("Usuario:" + usuarioActual+"👨");
+
+    if (usuarioActual == null) {
+        JOptionPane.showMessageDialog(null, "No hay un usuario conectado");
+        this.dispose(); // Cierra la ventana actual
+    } else {
+        // Lógica adicional si el usuario no es null
+    }
     }
 }
