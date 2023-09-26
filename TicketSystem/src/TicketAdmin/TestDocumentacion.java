@@ -17,9 +17,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class TestDocumentacion extends javax.swing.JFrame {
-
+    
     DefaultTableModel modeloTabla;
-
+  
     public TestDocumentacion() {
         initComponents();
         modeloTabla = new DefaultTableModel();
@@ -47,6 +47,8 @@ public class TestDocumentacion extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         TPriority1 = new javax.swing.JComboBox<>();
         UpdatePriority = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        usuarioticket = new javax.swing.JLabel();
         jInternalFrame2 = new javax.swing.JInternalFrame();
         jScrollPane2 = new javax.swing.JScrollPane();
         DocumentationPane = new javax.swing.JTextPane();
@@ -68,6 +70,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
         ReOpenBoton = new javax.swing.JButton();
         AssingtoBoton = new javax.swing.JButton();
         Usuariosystema = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ticket administrator");
@@ -115,6 +118,10 @@ public class TestDocumentacion extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Ticket Assigned to:");
+
+        usuarioticket.setText("N/A");
+
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
@@ -123,22 +130,29 @@ public class TestDocumentacion extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jScrollPane4)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(usuarioticket, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(TPriority1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(UpdatePriority, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(TPriority1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(UpdatePriority, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jInternalFrame1Layout.setVerticalGroup(
@@ -146,8 +160,12 @@ public class TestDocumentacion extends javax.swing.JFrame {
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-                .addGap(36, 36, 36)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(usuarioticket))
+                .addGap(15, 15, 15)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jButton2)
@@ -211,13 +229,13 @@ public class TestDocumentacion extends javax.swing.JFrame {
         BordeTituloLayout.setHorizontalGroup(
             BordeTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BordeTituloLayout.createSequentialGroup()
-                .addGap(405, 405, 405)
+                .addGap(71, 71, 71)
                 .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TituloID, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97)
+                .addGap(431, 431, 431)
                 .addComponent(Titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BordeTituloLayout.setVerticalGroup(
             BordeTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,6 +384,8 @@ public class TestDocumentacion extends javax.swing.JFrame {
 
         Usuariosystema.setText("Usuario:");
 
+        jLabel5.setText("Usuario:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -385,7 +405,9 @@ public class TestDocumentacion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ReOpenBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Usuariosystema, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Usuariosystema, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(InicioTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -396,8 +418,9 @@ public class TestDocumentacion extends javax.swing.JFrame {
                         .addComponent(CloseBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(AssingtoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(BordeTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(769, 769, 769)
+                .addComponent(BordeTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -409,27 +432,28 @@ public class TestDocumentacion extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BordeTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(MenuBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InicioTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TshootBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EscalatedBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CloseBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(AssingtoBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                            .addComponent(MenuBotton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InicioTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TshootBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EscalatedBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CloseBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AssingtoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(PendingVendorBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ValidacionBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ReOpenBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Usuariosystema))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                                .addComponent(PendingVendorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ValidacionBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ReOpenBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Usuariosystema)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                                .addComponent(BuscarTicketBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(PendingCustomerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(BordeTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jInternalFrame2)
                     .addComponent(jInternalFrame1)))
@@ -520,12 +544,13 @@ try {
 
                 if ("Not Started".equals(estatus)) {
                     // Continuar con la actualización del documento
-                    String query = "UPDATE Test SET (Documentacion , Status) = (?, ?) WHERE IDTicket = ?";
+                    String query = "UPDATE Test SET (Documentacion , Status, Assigned) = (?, ?, ?) WHERE IDTicket = ?";
 
                     try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                         preparedStatement.setString(1, Documento);
                         preparedStatement.setString(2, "In progress");
-                        preparedStatement.setInt(3, NumTicket);
+                        preparedStatement.setString(3, Usuariosystema.getText());
+                        preparedStatement.setInt(4, NumTicket);
 
                         int filasAfectadas = preparedStatement.executeUpdate();
 
@@ -1109,11 +1134,11 @@ this.dispose();
     }//GEN-LAST:event_UpdatePriorityActionPerformed
 
     private void AssingtoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssingtoBotonActionPerformed
-        // TODO add your handling code here:
+       asignarTicket();
     }//GEN-LAST:event_AssingtoBotonActionPerformed
 
     private void CheckUser(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CheckUser
-        setuser();
+     //   setuser();
 
     }//GEN-LAST:event_CheckUser
 
@@ -1229,11 +1254,14 @@ private void buscarDatos() {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel usuarioticket;
     // End of variables declaration//GEN-END:variables
 
     private void refrescardocumentacion() {
@@ -1267,6 +1295,7 @@ TituloID.setText(""+NumerodeTicket);
                 // Agregar una fila al modelo de tabla
                 modeloTabla.addRow(new Object[]{ticketID, title, priority, status, assigned, ets, descripcion,});
                    DocumentationPane.setText(documentacion);
+                   usuarioticket.setText(assigned);
             }
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de errores, puedes personalizarlo según tus necesidades
@@ -1275,7 +1304,7 @@ TituloID.setText(""+NumerodeTicket);
 
     private void setuser() {
    String usuarioActual = Sesion.getUsuarioActual();
-    Usuariosystema.setText("Usuario:" + usuarioActual+"👨");
+    Usuariosystema.setText(usuarioActual);
 
     if (usuarioActual == null) {
         JOptionPane.showMessageDialog(null, "No hay un usuario conectado");
@@ -1284,4 +1313,41 @@ TituloID.setText(""+NumerodeTicket);
         // Lógica adicional si el usuario no es null
     }
     }
+
+private void asignarTicket() {
+    // Código para abrir el diálogo de búsqueda de persona
+    BuscarPersonaDialog dialog = new BuscarPersonaDialog(this); // 'this' se refiere al frame principal
+    dialog.setVisible(true);
+
+    // Verifica si se seleccionó una persona
+    if (dialog.isPersonaSeleccionada()) {
+        int numeroReloj = dialog.getNumeroRelojSeleccionado();
+        
+        // Actualiza la base de datos con el número de reloj asignado al ticket
+        String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+        String url = "jdbc:ucanaccess://" + ruta;
+int t = Integer.parseInt(TituloID.getText());
+        try (Connection connection = DriverManager.getConnection(url)) {
+            // Actualiza el campo AssignedUserClockNumber en la tabla Tickets
+            String updateQuery = "UPDATE Test SET Assigned = ? WHERE IDTicket = ?"; // Ajusta el nombre de la tabla y los campos según tu base de datos
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.setInt(1, numeroReloj);
+            preparedStatement.setInt(2,t ); // Reemplaza con el ID del ticket específico que deseas asignar
+            int filasAfectadas = preparedStatement.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                JOptionPane.showMessageDialog(null, "Ticket asignado correctamente.");
+                // Realiza cualquier otra acción o actualización necesaria después de asignar el ticket.
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo asignar el ticket.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al asignar el ticket: " + e.getMessage(), "Error de Base de Datos", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        // Manejo si no se seleccionó ninguna persona.
+    }
+    refrescardocumentacion();
+}
+
 }
