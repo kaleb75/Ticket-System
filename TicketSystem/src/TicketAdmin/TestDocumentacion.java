@@ -484,7 +484,16 @@ try {
     Date fechaactual = new Date();
     SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     String fechahoracomostring = formatofecha.format(fechaactual);
-    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Iniciado ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+            String mensajepopup = JOptionPane.showInputDialog(null, "Por favor, ingresa un mensaje:", "Comentario de estatus", JOptionPane.INFORMATION_MESSAGE);
+        // Verificar si el usuario ingresó un mensaje o canceló el cuadro de diálogo
+        if (mensajepopup != null) {
+            // El usuario ingresó un mensaje, podemos usarlo
+            System.out.println("Mensaje ingresado: " + mensajepopup);
+        } else {
+            // El usuario canceló el cuadro de diálogo
+            System.out.println("No se ingresó ningún mensaje.");
+        }
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Iniciado ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
     //String Documento = Docu.getText(); 
     int IDTicket = 1; // Reemplaza 1 con el ID del ticket que deseas actualizar
     int NumTicket = Integer.parseInt(TituloID.getText());
@@ -547,10 +556,16 @@ Date fechaactual = new Date();
 SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 // Convierte la fecha y hora formateada en una cadena
 String fechahoracomostring = formatofecha.format(fechaactual);
-
-// Construye un documento con la fecha y hora actual y un mensaje
-String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Pending Customer ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
-
+  String mensajepopup = JOptionPane.showInputDialog(null, "Comentario: ", "Comentario de estatus", JOptionPane.INFORMATION_MESSAGE);
+        // Verificar si el usuario ingresó un mensaje o canceló el cuadro de diálogo
+        if (mensajepopup != null) {
+            // El usuario ingresó un mensaje, podemos usarlo
+            System.out.println("Mensaje ingresado: " + mensajepopup);
+        } else {
+            // El usuario canceló el cuadro de diálogo
+            System.out.println("No se ingresó ningún mensaje.");
+        }
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket pending Customer ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
 // Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
 int IDTicket = 1;
 
@@ -620,9 +635,16 @@ Date fechaactual = new Date();
 SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 // Convierte la fecha y hora formateada en una cadena
 String fechahoracomostring = formatofecha.format(fechaactual);
-
-// Construye un documento con la fecha y hora actual y un mensaje
-String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket in Tshoot ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+  String mensajepopup = JOptionPane.showInputDialog(null, "Por favor, ingresa un mensaje:", "Comentario de estatus", JOptionPane.INFORMATION_MESSAGE);
+        // Verificar si el usuario ingresó un mensaje o canceló el cuadro de diálogo
+        if (mensajepopup != null) {
+            // El usuario ingresó un mensaje, podemos usarlo
+            System.out.println("Mensaje ingresado: " + mensajepopup);
+        } else {
+            // El usuario canceló el cuadro de diálogo
+            System.out.println("No se ingresó ningún mensaje.");
+        }
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket in Troubleshooting ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
 
 // Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
 int IDTicket = 1;
@@ -694,10 +716,16 @@ Date fechaactual = new Date();
 SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 // Convierte la fecha y hora formateada en una cadena
 String fechahoracomostring = formatofecha.format(fechaactual);
-
-// Construye un documento con la fecha y hora actual y un mensaje
-String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Pending Vendor ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
-
+ String mensajepopup = JOptionPane.showInputDialog(null, "Comentario: ", "Comentario de estatus", JOptionPane.INFORMATION_MESSAGE);
+        // Verificar si el usuario ingresó un mensaje o canceló el cuadro de diálogo
+        if (mensajepopup != null) {
+            // El usuario ingresó un mensaje, podemos usarlo
+            System.out.println("Mensaje ingresado: " + mensajepopup);
+        } else {
+            // El usuario canceló el cuadro de diálogo
+            System.out.println("No se ingresó ningún mensaje.");
+        }
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Pending Vendor ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
 // Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
 int IDTicket = 1;
 
@@ -768,10 +796,16 @@ Date fechaactual = new Date();
 SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 // Convierte la fecha y hora formateada en una cadena
 String fechahoracomostring = formatofecha.format(fechaactual);
-
-// Construye un documento con la fecha y hora actual y un mensaje
-String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Validated ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
-
+ String mensajepopup = JOptionPane.showInputDialog(null, "Comentario: ", "Comentario de estatus", JOptionPane.INFORMATION_MESSAGE);
+        // Verificar si el usuario ingresó un mensaje o canceló el cuadro de diálogo
+        if (mensajepopup != null) {
+            // El usuario ingresó un mensaje, podemos usarlo
+            System.out.println("Mensaje ingresado: " + mensajepopup);
+        } else {
+            // El usuario canceló el cuadro de diálogo
+            System.out.println("No se ingresó ningún mensaje.");
+        }
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket en Validacion ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
 // Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
 int IDTicket = 1;
 
@@ -843,10 +877,16 @@ Date fechaactual = new Date();
 SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 // Convierte la fecha y hora formateada en una cadena
 String fechahoracomostring = formatofecha.format(fechaactual);
-
-// Construye un documento con la fecha y hora actual y un mensaje
-String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Closed ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
-
+ String mensajepopup = JOptionPane.showInputDialog(null, "Comentario: ", "Comentario de estatus", JOptionPane.INFORMATION_MESSAGE);
+        // Verificar si el usuario ingresó un mensaje o canceló el cuadro de diálogo
+        if (mensajepopup != null) {
+            // El usuario ingresó un mensaje, podemos usarlo
+            System.out.println("Mensaje ingresado: " + mensajepopup);
+        } else {
+            // El usuario canceló el cuadro de diálogo
+            System.out.println("No se ingresó ningún mensaje.");
+        }
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Escaladp ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
 // Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
 int IDTicket = 1;
 
@@ -916,9 +956,16 @@ Date fechaactual = new Date();
 SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 // Convierte la fecha y hora formateada en una cadena
 String fechahoracomostring = formatofecha.format(fechaactual);
-
-// Construye un documento con la fecha y hora actual y un mensaje
-String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket is Escalated ***" + "\n" + "\n" + "\n" + DocumentationPane.getText();
+  String mensajepopup = JOptionPane.showInputDialog(null, "Comentario: ", "Comentario de estatus", JOptionPane.INFORMATION_MESSAGE);
+        // Verificar si el usuario ingresó un mensaje o canceló el cuadro de diálogo
+        if (mensajepopup != null) {
+            // El usuario ingresó un mensaje, podemos usarlo
+            System.out.println("Mensaje ingresado: " + mensajepopup);
+        } else {
+            // El usuario canceló el cuadro de diálogo
+            System.out.println("No se ingresó ningún mensaje.");
+        }
+    String Documento = "***  " + fechaactual + "  ***\n" + "***  Ticket Escalado ***" + "\n" + mensajepopup + "\n" + "\n" + "\n" + DocumentationPane.getText();
 
 // Número de identificación del ticket que se desea actualizar (reemplaza con el valor adecuado)
 int IDTicket = 1;
