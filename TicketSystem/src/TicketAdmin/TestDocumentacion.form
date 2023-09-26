@@ -43,7 +43,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="ReOpenBoton" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Usuariosystema" min="-2" pref="154" max="-2" attributes="0"/>
+                      <Component id="jLabel5" pref="59" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Usuariosystema" min="-2" pref="132" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="InicioTicket" min="-2" pref="60" max="-2" attributes="0"/>
@@ -57,8 +59,9 @@
                       <Component id="AssingtoBoton" min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="74" max="32767" attributes="0"/>
-              <Component id="BordeTitulo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="769" max="-2" attributes="0"/>
+              <Component id="BordeTitulo" min="-2" pref="230" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <Component id="jInternalFrame1" min="-2" max="-2" attributes="0"/>
@@ -70,33 +73,34 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="BordeTitulo" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="MenuBotton" alignment="3" max="32767" attributes="0"/>
-                          <Component id="InicioTicket" alignment="3" max="32767" attributes="0"/>
-                          <Component id="TshootBoton" alignment="3" max="32767" attributes="0"/>
-                          <Component id="EscalatedBoton" alignment="3" max="32767" attributes="0"/>
-                          <Component id="CloseBoton" alignment="3" max="32767" attributes="0"/>
-                          <Component id="AssingtoBoton" alignment="3" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" max="-2" attributes="0">
+                          <Component id="MenuBotton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InicioTicket" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="TshootBoton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="EscalatedBoton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="CloseBoton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="AssingtoBoton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="PendingVendorBoton" alignment="3" max="32767" attributes="0"/>
-                              <Component id="ValidacionBoton" alignment="3" max="32767" attributes="0"/>
-                              <Component id="ReOpenBoton" alignment="3" max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" max="-2" attributes="0">
+                              <Component id="PendingVendorBoton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="ValidacionBoton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="ReOpenBoton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="Usuariosystema" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BuscarTicketBotton" alignment="3" max="32767" attributes="0"/>
-                              <Component id="PendingCustomerBoton" alignment="3" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" max="-2" attributes="0">
+                              <Component id="BuscarTicketBotton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="PendingCustomerBoton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
+                  <Component id="BordeTitulo" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jInternalFrame2" max="32767" attributes="0"/>
                   <Component id="jInternalFrame1" max="32767" attributes="0"/>
@@ -125,24 +129,34 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Component id="jScrollPane4" max="32767" attributes="0"/>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel2" max="32767" attributes="0"/>
-                      <Component id="jLabel3" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jButton2" min="-2" pref="146" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="BotonEnviar" pref="150" max="32767" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="usuarioticket" min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="TPriority1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel2" max="32767" attributes="0"/>
+                              <Component id="jLabel3" max="32767" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="UpdatePriority" min="-2" pref="58" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jButton2" min="-2" pref="146" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="BotonEnviar" pref="150" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="TPriority1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="UpdatePriority" min="-2" pref="58" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -154,8 +168,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jScrollPane1" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane4" pref="442" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="jScrollPane4" pref="436" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="usuarioticket" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -242,6 +261,16 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdatePriorityActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ticket Assigned to:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="usuarioticket">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="N/A"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -364,13 +393,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="405" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Component id="Titulo" min="-2" pref="47" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="TituloID" min="-2" pref="53" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="431" max="-2" attributes="0"/>
                   <Component id="Titulo1" min="-2" pref="139" max="-2" attributes="0"/>
-                  <EmptySpace pref="245" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -673,6 +702,11 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Usuariosystema">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Usuario:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Usuario:"/>
       </Properties>
