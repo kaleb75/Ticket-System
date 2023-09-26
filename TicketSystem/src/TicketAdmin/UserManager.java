@@ -106,7 +106,7 @@ public class UserManager extends javax.swing.JFrame {
         TClockNumber.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         BotonBuscar.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        BotonBuscar.setText("Buscar");
+        BotonBuscar.setText("Search");
         BotonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonBuscarActionPerformed(evt);
@@ -114,7 +114,7 @@ public class UserManager extends javax.swing.JFrame {
         });
 
         BotonEditar.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        BotonEditar.setText("Editar");
+        BotonEditar.setText("Update/Edit");
         BotonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEditarActionPerformed(evt);
@@ -122,7 +122,7 @@ public class UserManager extends javax.swing.JFrame {
         });
 
         BotonCrear.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        BotonCrear.setText("Crear");
+        BotonCrear.setText("New");
         BotonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonCrearActionPerformed(evt);
@@ -130,7 +130,7 @@ public class UserManager extends javax.swing.JFrame {
         });
 
         BotonEliminar.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        BotonEliminar.setText("Eliminar");
+        BotonEliminar.setText("Delete");
         BotonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarActionPerformed(evt);
