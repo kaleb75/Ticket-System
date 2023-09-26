@@ -7,6 +7,7 @@ package Log;
 
 import Menu.AdminMenu;
 import Menu.UserMenu;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -51,6 +52,11 @@ public class Log extends javax.swing.JFrame {
         });
 
         Pass.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        Pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PassKeyPressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel1.setText("Password:");
@@ -117,6 +123,12 @@ public class Log extends javax.swing.JFrame {
     private void LoginBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBotonActionPerformed
 metodolog();
     }//GEN-LAST:event_LoginBotonActionPerformed
+
+    private void PassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PassKeyPressed
+           if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        metodolog();
+    }
+    }//GEN-LAST:event_PassKeyPressed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -184,7 +196,7 @@ private void metodolog() {
             int userAdmin = resultSet.getInt("Admin");
 
             if (storedPassword.equals(password)) {
-                JOptionPane.showMessageDialog(null, "Acceso concedido");
+               // JOptionPane.showMessageDialog(null, "Acceso concedido");
 
                 // Verifica el nivel de usuario y abre el menú correspondiente
                 if (userAdmin == 1) {
@@ -195,18 +207,19 @@ private void metodolog() {
                     this.dispose();
                     if (storedPassword.equals(password)) {
     Sesion.setUsuarioActual(userr); // Establece el usuario actual
-    JOptionPane.showMessageDialog(null, "Acceso concedido");
+   // JOptionPane.showMessageDialog(null, "Acceso concedido");
     // Resto del código
 }
                 } else {
                     // El usuario es nivel usuario.
                     // Abre el menú de usuario (UserMenu).
                     UserMenu userMenu = new UserMenu();
+                    JOptionPane.showMessageDialog(null, "Acceso concedido");
                     userMenu.setVisible(true);
                     this.dispose();
                     if (storedPassword.equals(password)) {
     Sesion.setUsuarioActual(userr); // Establece el usuario actual
-    JOptionPane.showMessageDialog(null, "Acceso concedido");
+    
     // Resto del código
 }
                 }
