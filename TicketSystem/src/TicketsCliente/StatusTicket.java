@@ -249,7 +249,7 @@ this.dispose();
     }//GEN-LAST:event_MenuBotonActionPerformed
 
     private void Setuser(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Setuser
-setuser();
+//setuser();
 // TODO add your handling code here:
     }//GEN-LAST:event_Setuser
 
