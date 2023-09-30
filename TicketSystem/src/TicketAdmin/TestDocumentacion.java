@@ -6,6 +6,7 @@ package TicketAdmin;
 
 import Log.Sesion;
 import Menu.AdminMenu;
+import com.jtattoo.plaf.noire.NoireLookAndFeel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +14,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.LookAndFeel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import javax.swing.plaf.synth.SynthLookAndFeel;
 import javax.swing.table.DefaultTableModel;
 
 public class TestDocumentacion extends javax.swing.JFrame {
@@ -21,7 +30,12 @@ public class TestDocumentacion extends javax.swing.JFrame {
     DefaultTableModel modeloTabla;
   
     public TestDocumentacion() {
+         
         initComponents();
+// UIManager.setLookAndFeel(new NoireLookAndFeel());
+       
+        setLocationRelativeTo(null);
+      
         modeloTabla = new DefaultTableModel();
         modeloTabla.addColumn("TicketID");
         modeloTabla.addColumn("Title");
@@ -32,6 +46,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
         modeloTabla.addColumn("Descripcion");
       //  modeloTabla.addColumn("Documentacion");
         jTable1.setModel(modeloTabla);
+    
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -405,7 +420,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ReOpenBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(Usuariosystema, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -497,7 +512,7 @@ try {
     }//GEN-LAST:event_BotonEnviarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
- buscarDatos();
+    buscarDatos();
     }//GEN-LAST:event_formWindowOpened
 
     private void MenuBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuBottonActionPerformed
@@ -1167,7 +1182,7 @@ int t = Integer.parseInt( TituloID.getText());
     }//GEN-LAST:event_AssingtoBotonActionPerformed
 
     private void CheckUser(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CheckUser
-     //   setuser();
+     setuser();
 
     }//GEN-LAST:event_CheckUser
 
@@ -1378,5 +1393,9 @@ int t = Integer.parseInt(TituloID.getText());
     }
     refrescardocumentacion();
 }
+
+    private LookAndFeel NoireLookAndFeel() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

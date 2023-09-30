@@ -3,6 +3,7 @@ package TicketAdmin;
 
 import javax.swing.JOptionPane;
 import Menu.AdminMenu;
+import java.awt.Color;
 import java.awt.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,6 +29,8 @@ public class UserManager extends javax.swing.JFrame {
      * Crea una nueva instancia de la interfaz NewUser.
      */
     public UserManager() {
+        getContentPane();
+
         initComponents();
     }
 

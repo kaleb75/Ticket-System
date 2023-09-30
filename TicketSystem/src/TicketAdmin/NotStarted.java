@@ -19,6 +19,7 @@ import java.util.List;
 import javax.swing.RowSorter.SortKey;
 import javax.swing.SortOrder;
 
+
 public class NotStarted extends javax.swing.JFrame {
 
     private JTable table;
@@ -84,6 +85,7 @@ public class NotStarted extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        UIManager.setLookAndFeel();
         setTitle("Not Started Tickets");
 
         JButton cancelButton = new JButton("Cancel");
@@ -213,6 +215,7 @@ table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new NotStarted().setVisible(true);
+            
         });
     }
 
