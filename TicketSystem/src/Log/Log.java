@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Code written and developed by Kaleb Chavira IMX078856
+ * Código escrito y desarrollado por Kaleb Chavira IMX078856
  */
 package Log;
 
@@ -15,12 +15,17 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
+ * Log class for user login functionality.
+ * Clase Log para la funcionalidad de inicio de sesión de usuario.
  *
  * @author IMX078856
  */
 public class Log extends javax.swing.JFrame {
 
-  
+     /**
+     * Constructor for the Log class.
+     * Constructor para la clase Log.
+     */
     public Log() {
         initComponents();
     }
@@ -130,37 +135,37 @@ metodolog();
         metodolog();
     }
     }//GEN-LAST:event_PassKeyPressed
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+ /**
+ * The main method of the application that initializes the user interface and GUI look and feel.
+ * El método principal de la aplicación que inicializa la interfaz de usuario y el aspecto visual de la GUI.
+ */
+public static void main(String args[]) {
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Log().setVisible(true);
-            }
-        });
+    } catch (ClassNotFoundException ex) {
+        java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+        java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+        java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(Log.class.getName()).log(java.util.logging.Admin.SEVERE, null, ex);
     }
+    //</editor-fold>
+
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new Log().setVisible(true);
+        }
+    });
+}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LoginBoton;
@@ -172,21 +177,35 @@ metodolog();
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
+/**
+ * This method handles user login and navigation based on provided credentials.
+ * Este método gestiona el inicio de sesión del usuario y la navegación basada en las credenciales proporcionadas.
+ */
 private void metodolog() {
+    // Define the path to the Access database file and create a JDBC URL.
+    // Define la ruta al archivo de base de datos de Access y crea una URL de JDBC.
     String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
     String url = "jdbc:ucanaccess://" + ruta;
 
     try {
+        // Get the entered user and password from text fields.
+        // Obtiene el usuario y la contraseña ingresados desde los campos de texto.
         String userr = User.getText();
         String password = Pass.getText();
 
-        // Verifica si los campos de usuario y contraseña están vacíos
+        // Check if user and password fields are empty.
+        // Verifica si los campos de usuario y contraseña están vacíos.
         if (userr.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Los campos de usuario y contraseña no pueden estar vacíos", "Acceso denegado", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "User and password fields cannot be empty", "Access Denied", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
+        // Establish a database connection using the JDBC URL.
+        // Establece una conexión con la base de datos utilizando la URL de JDBC.
         Connection connection = DriverManager.getConnection(url);
+
+        // Define a SQL query to retrieve user information.
+        // Define una consulta SQL para recuperar la información del usuario.
         String query = "SELECT Pass, Admin FROM Usuarios WHERE Usuarioo = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, userr);
@@ -197,44 +216,38 @@ private void metodolog() {
             int userAdmin = resultSet.getInt("Admin");
 
             if (storedPassword.equals(password)) {
-               // JOptionPane.showMessageDialog(null, "Acceso concedido");
-
-                // Verifica el nivel de usuario y abre el menú correspondiente
+                // Check if the entered password matches the stored password.
+                // Verifica si la contraseña ingresada coincide con la contraseña almacenada.
+                
                 if (userAdmin == 1) {
-                    // El usuario es administrador.
+                    // The user is an administrator.
                     // Abre el menú de administrador (AdminMenu).
                     AdminMenu adminMenu = new AdminMenu();
+                    JOptionPane.showMessageDialog(null, "The system access has been confirmed 🤘🏻");
                     adminMenu.setVisible(true);
                     this.dispose();
-                    if (storedPassword.equals(password)) {
-    Sesion.setUsuarioActual(userr); // Establece el usuario actual
-   // JOptionPane.showMessageDialog(null, "Acceso concedido");
-    // Resto del código
-}
+                    Sesion.setUsuarioActual(userr); // Set the current user.
                 } else {
-                    // El usuario es nivel usuario.
+                    // The user is a regular user.
                     // Abre el menú de usuario (UserMenu).
                     UserMenu userMenu = new UserMenu();
-                    JOptionPane.showMessageDialog(null, "Acceso concedido");
+                    JOptionPane.showMessageDialog(null, "The system access has been confirmed");
                     userMenu.setVisible(true);
                     this.dispose();
-                    if (storedPassword.equals(password)) {
-    Sesion.setUsuarioActual(userr); // Establece el usuario actual
-    
-    // Resto del código
-}
+                    Sesion.setUsuarioActual(userr); // Set the current user.
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Acceso denegado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Incorrect password", "Access Denied", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            // Si no se encontraron resultados para el nombre de usuario, muestra un mensaje de "Acceso denegado".
-            JOptionPane.showMessageDialog(null, "Usuario no encontrado en la base de datos", "Acceso denegado", JOptionPane.ERROR_MESSAGE);
+            // If no results were found for the username, display an "Access Denied" message.
+            JOptionPane.showMessageDialog(null, "User not found in the database", "Access Denied", JOptionPane.ERROR_MESSAGE);
         }
     } catch (Exception e) {
         e.printStackTrace();
         System.out.println("" + e);
     }
 }
+
  
 }
