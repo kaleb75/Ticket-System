@@ -11,6 +11,8 @@ import TicketsCliente.StatusTicket;
 import javax.swing.JOptionPane;
 
 /**
+ * UserMenu class represents the user menu interface for the application.
+ * It allows users to create tickets, view the status of their tickets, and log out.
  *
  * @author IMX078856
  */
