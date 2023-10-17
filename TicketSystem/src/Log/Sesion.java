@@ -24,7 +24,7 @@ public class Sesion {
         String mensaje = null;
             
             try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
             JOptionPane.showMessageDialog(null,"The session has been closed for:  " + usuarioActual);  
         } catch (InterruptedException e) {
             // Manejo de excepciones en caso de interrupción

@@ -200,8 +200,10 @@ this.dispose(); // Close the current window.
     Usuariosystema.setText("Usuario: " + usuarioActual); // Set the text in the Usuariosystema component to display the current user.
 
     if (usuarioActual == null) {
-        JOptionPane.showMessageDialog(null, "No hay un usuario conectado"); // Show a message dialog indicating that there is no connected user.
-        this.dispose(); // Close the current window.
+        
+      JOptionPane.showMessageDialog(null, "No hay un usuario conectado"); // Show a message dialog indicating that there is no connected user.
+      System.exit(0);
+        //this.dispose(); // Close the current window.
     } else {
         // Additional logic if the user is not null.
     }

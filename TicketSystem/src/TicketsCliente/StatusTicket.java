@@ -249,8 +249,7 @@ this.dispose();
     }//GEN-LAST:event_MenuBotonActionPerformed
 
     private void Setuser(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Setuser
-//setuser();
-// TODO add your handling code here:
+setuser();
     }//GEN-LAST:event_Setuser
 
     /**
@@ -367,7 +366,8 @@ private void buscarDatos() {
 
     if (usuarioActual == null) {
         JOptionPane.showMessageDialog(null, "No hay un usuario conectado");
-        this.dispose(); // Cierra la ventana actual
+      //  this.dispose(); // Cierra la ventana actual
+        System.exit(0);
     } else {
         // Lógica adicional si el usuario no es null
     }    }

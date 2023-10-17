@@ -1,5 +1,6 @@
 package TicketAdmin;
 
+import Log.Sesion;
 import Menu.AdminMenu;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,6 +22,25 @@ import javax.swing.SortOrder;
 
 
 public class NotStarted extends javax.swing.JFrame {
+
+    private static void setuser() {
+  // Obtiene el nombre de usuario actual de la sesión
+        String usuarioActual = Sesion.getUsuarioActual();
+      //  Usuariosystema.setText("Usuario: " + usuarioActual);
+
+        if (usuarioActual == null) {
+            JOptionPane.showMessageDialog(null, "No hay un usuario conectado");
+            AdminMenu ir = new AdminMenu();
+            ir.setVisible(true);
+          System.exit(0);
+        // Cierra la ventana actual
+        } else {
+            // Lógica adicional si el usuario no es null
+        }    }
+
+  
+         
+
 
     private JTable table;
 
@@ -85,7 +105,6 @@ public class NotStarted extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        UIManager.setLookAndFeel();
         setTitle("Not Started Tickets");
 
         JButton cancelButton = new JButton("Cancel");
@@ -213,9 +232,11 @@ table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
     }
 
     public static void main(String args[]) {
+        
         java.awt.EventQueue.invokeLater(() -> {
-            new NotStarted().setVisible(true);
             
+            new NotStarted().setVisible(true);
+            setuser();
         });
     }
 

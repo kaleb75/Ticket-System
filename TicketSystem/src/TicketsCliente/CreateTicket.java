@@ -473,6 +473,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     if (usuarioActual == null) {
         JOptionPane.showMessageDialog(null, "No hay un usuario conectado");
         this.dispose(); // Cierra la ventana actual
+        System.exit(0);
     } else {
         // Lógica adicional si el usuario no es null
     }
