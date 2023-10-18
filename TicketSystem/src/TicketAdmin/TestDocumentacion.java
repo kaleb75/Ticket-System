@@ -7,6 +7,8 @@ package TicketAdmin;
 import Log.Sesion;
 import Menu.AdminMenu;
 import com.jtattoo.plaf.noire.NoireLookAndFeel;
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
@@ -26,7 +29,8 @@ import javax.swing.plaf.synth.SynthLookAndFeel;
 import javax.swing.table.DefaultTableModel;
 
 public class TestDocumentacion extends javax.swing.JFrame {
-    
+    private String rutaArchivoAdjunto = ""; // Variable para almacenar la ruta del archivo adjunto
+
     DefaultTableModel modeloTabla;
   
     public TestDocumentacion() {
@@ -58,7 +62,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
         Docu = new javax.swing.JTextArea();
         BotonEnviar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        Botonbuscaradjunto = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         ComboP = new javax.swing.JComboBox<>();
         UpdatePriority = new javax.swing.JButton();
@@ -120,7 +124,12 @@ public class TestDocumentacion extends javax.swing.JFrame {
 
         jLabel2.setText("Attached 1:");
 
-        jButton2.setText("Search");
+        Botonbuscaradjunto.setText("Search");
+        Botonbuscaradjunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonbuscaradjuntoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Priority:");
 
@@ -160,7 +169,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Botonbuscaradjunto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(BotonEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jInternalFrame1Layout.createSequentialGroup()
@@ -183,7 +192,7 @@ public class TestDocumentacion extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton2)
+                    .addComponent(Botonbuscaradjunto)
                     .addComponent(BotonEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -487,14 +496,15 @@ String Documento = "***  "+ fechaactual+"  ***\n" + Docu.getText()+"\n"+ "\n" +"
 //String Documento = Docu.getText(); 
     int IDTicket = 1; // Reemplaza 1 con el ID del ticket que deseas actualizar
 int NumTicket = Integer.parseInt(TituloID.getText());
- 
+
 try {
         Connection connection = DriverManager.getConnection(url);
-        String query = "UPDATE Test SET Documentacion = ? WHERE IDTicket = ?";
+        String query = "UPDATE Test SET Documentacion = ?, Archivo1 = ? WHERE IDTicket = ?";
         
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, Documento);
-            preparedStatement.setInt(2, NumTicket);
+            preparedStatement.setString(2, rutaArchivoAdjunto); // Almacena la ruta del archivo adjunto
+            preparedStatement.setInt(3, NumTicket);
             
             int filasAfectadas = preparedStatement.executeUpdate();
 
@@ -1186,6 +1196,26 @@ int t = Integer.parseInt( TituloID.getText());
 
     }//GEN-LAST:event_CheckUser
 
+    private void BotonbuscaradjuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonbuscaradjuntoActionPerformed
+// Crear un cuadro de diálogo para seleccionar un archivo
+JFileChooser fileChooser = new JFileChooser();
+
+// Mostrar el cuadro de diálogo y esperar a que el usuario seleccione un archivo
+int returnValue = fileChooser.showOpenDialog(this);
+
+// Verificar si el usuario ha seleccionado un archivo
+if (returnValue == JFileChooser.APPROVE_OPTION) {
+    // Obtener el archivo seleccionado por el usuario
+    File selectedFile = fileChooser.getSelectedFile();
+
+    // Obtener la ruta absoluta del archivo seleccionado
+    String rutaArchivoAdjunto = selectedFile.getAbsolutePath();
+    Botonbuscaradjunto.setText(rutaArchivoAdjunto);
+    // Ahora puedes usar "rutaArchivoAdjunto" para trabajar con el archivo seleccionado.
+    // Por ejemplo, adjuntarlo a la base de datos.
+}
+    }//GEN-LAST:event_BotonbuscaradjuntoActionPerformed
+
 /**
  * Este método busca y muestra información de un ticket en la base de datos
  * según el número de ticket proporcionado por el usuario.
@@ -1274,6 +1304,7 @@ private void buscarDatos() {
     private javax.swing.JButton AssingtoBoton;
     private javax.swing.JPanel BordeTitulo;
     private javax.swing.JButton BotonEnviar;
+    private javax.swing.JButton Botonbuscaradjunto;
     private javax.swing.JButton BuscarTicketBotton;
     private javax.swing.JButton CloseBoton;
     private javax.swing.JComboBox<String> ComboP;
@@ -1292,7 +1323,6 @@ private void buscarDatos() {
     private javax.swing.JButton UpdatePriority;
     private javax.swing.JLabel Usuariosystema;
     private javax.swing.JButton ValidacionBoton;
-    private javax.swing.JButton jButton2;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
@@ -1395,8 +1425,36 @@ int t = Integer.parseInt(TituloID.getText());
     refrescardocumentacion();
 }
 
-    private LookAndFeel NoireLookAndFeel() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+public void uploadFileToDatabase(File file, int numTicket) {
+    try {
+            String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+        String url = "jdbc:ucanaccess://" + ruta;
+        Connection connection = DriverManager.getConnection(url);
+
+        FileInputStream inputStream = new FileInputStream(file);
+
+        String query = "UPDATE Test SET Documentacion = ? WHERE IDTicket = ?";
+        
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setBinaryStream(1, inputStream, (int) file.length());
+            preparedStatement.setInt(2, numTicket);
+            
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(this, "Archivo adjuntado y actualizado con éxito.");
+                refrescardocumentacion();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo actualizar el archivo.");
+            }
+        }
+        connection.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al adjuntar el archivo: " + e.getMessage());
+    }    }
+
+
+    
 
 }
