@@ -9,6 +9,7 @@ import Menu.AdminMenu;
 import com.jtattoo.plaf.noire.NoireLookAndFeel;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -499,12 +500,11 @@ int NumTicket = Integer.parseInt(TituloID.getText());
 
 try {
         Connection connection = DriverManager.getConnection(url);
-        String query = "UPDATE Test SET Documentacion = ?, Archivo1 = ? WHERE IDTicket = ?";
+        String query = "UPDATE Test SET Documentacion = ? WHERE IDTicket = ?";
         
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, Documento);
-            preparedStatement.setString(2, rutaArchivoAdjunto); // Almacena la ruta del archivo adjunto
-            preparedStatement.setInt(3, NumTicket);
+            preparedStatement.setInt(2, NumTicket);
             
             int filasAfectadas = preparedStatement.executeUpdate();
 
@@ -1197,23 +1197,51 @@ int t = Integer.parseInt( TituloID.getText());
     }//GEN-LAST:event_CheckUser
 
     private void BotonbuscaradjuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonbuscaradjuntoActionPerformed
-// Crear un cuadro de diálogo para seleccionar un archivo
-JFileChooser fileChooser = new JFileChooser();
+     /*String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+    String url = "jdbc:ucanaccess://" + ruta; */
+    
+      JFileChooser fileChooser = new JFileChooser();
+    int returnValue = fileChooser.showOpenDialog(this);
 
-// Mostrar el cuadro de diálogo y esperar a que el usuario seleccione un archivo
-int returnValue = fileChooser.showOpenDialog(this);
+    if (returnValue == JFileChooser.APPROVE_OPTION) {
+        File selectedFile = fileChooser.getSelectedFile();
+        String filePath = selectedFile.getAbsolutePath();
 
-// Verificar si el usuario ha seleccionado un archivo
-if (returnValue == JFileChooser.APPROVE_OPTION) {
-    // Obtener el archivo seleccionado por el usuario
-    File selectedFile = fileChooser.getSelectedFile();
-
-    // Obtener la ruta absoluta del archivo seleccionado
-    String rutaArchivoAdjunto = selectedFile.getAbsolutePath();
-    Botonbuscaradjunto.setText(rutaArchivoAdjunto);
-    // Ahora puedes usar "rutaArchivoAdjunto" para trabajar con el archivo seleccionado.
-    // Por ejemplo, adjuntarlo a la base de datos.
+        // Llama a un método para actualizar la base de datos con el archivo seleccionado
+        updateDatabaseWithAttachment(filePath);
+    }
 }
+
+public void updateDatabaseWithAttachment(String filePath) {
+    String ruta = "C:\\Users\\imx078856\\Documents\\GitHub\\Ticket-System\\BD\\BDTickets-System.accdb";
+    String url = "jdbc:ucanaccess://" + ruta;
+
+    try (Connection connection = DriverManager.getConnection(url)) {
+        System.out.println("Conexion exitosa");
+        String sql = "UPDATE Test SET Archivo1 = ? WHERE IDTicket = ?";
+        int idToUpdate = Integer.parseInt(TituloID.getText()) ; // Reemplaza con el ID de la fila a actualizar
+System.out.println("Es para confirmar que saca bien el numero del ticket con el get text ya que el ticket deberia ser el: " + idToUpdate);
+        try (FileInputStream fileInputStream = new FileInputStream(filePath);
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            System.out.println("error en el segundo try");
+            preparedStatement.setBinaryStream(1, fileInputStream, (int) new File(filePath).length());
+            preparedStatement.setInt(2, idToUpdate);
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Archivo adjunto actualizado con éxito.");
+            } else {
+                System.out.println("No se pudo actualizar el archivo adjunto.");
+            }
+        }
+    } catch (SQLException ex) {
+      ex.printStackTrace();
+        System.out.println("Error 1: " + ex);
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Error 2: " + e);
+    }
+
     }//GEN-LAST:event_BotonbuscaradjuntoActionPerformed
 
 /**
